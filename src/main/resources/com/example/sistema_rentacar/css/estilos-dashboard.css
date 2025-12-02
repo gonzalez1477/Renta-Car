@@ -1,0 +1,47 @@
+/* ---- Estilo general de tablas ---- */
+.table-view {
+    -fx-background-color: transparent;
+    -fx-border-color: #d0d3d4;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-padding: 5;
+}
+
+/* ---- Encabezados ---- */
+.table-view .column-header-background {
+    -fx-background-color: linear-gradient(to bottom, #2c3e50, #34495e);
+    -fx-background-radius: 10 10 0 0;
+}
+
+.table-view .column-header,
+.table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+}
+
+/* ---- Filas alternadas ---- */
+.table-row-cell:filled {
+    -fx-background-color: white;
+}
+
+.table-row-cell:filled:nth-child(even) {
+    -fx-background-color: #f8f9f9;
+}
+
+/* ---- Hover ---- */
+.table-row-cell:hover {
+    -fx-background-color: #d6eaf8;
+}
+
+/* ---- Fila seleccionada ---- */
+.table-row-cell:selected {
+    -fx-background-color: #3498db !important;
+    -fx-text-fill: white;
+}
+
+/* ---- Bordes de celdas ---- */
+.table-cell {
+    -fx-border-color: #ecf0f1;
+    -fx-padding: 8;
+}

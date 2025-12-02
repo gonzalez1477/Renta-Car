@@ -1,0 +1,12 @@
+.button:hover {
+    -fx-background-color: #2980b9;
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+    -fx-effect: dropshadow(three-pass-box, rgba(52, 152, 219, 0.4), 12, 0, 0, 4);
+}
+
+.button:pressed {
+    -fx-background-color: #21618c;
+    -fx-scale-x: 0.98;
+    -fx-scale-y: 0.98;
+}

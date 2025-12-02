@@ -1,0 +1,49 @@
+/* BOTN EMPLEADO */
+.btn-empleado {
+    -fx-background-color: white;
+    -fx-text-fill: #667eea;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+}
+
+.btn-empleado:hover {
+    -fx-background-color: #e8ecff;
+    -fx-text-fill: #5563d1;
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
+.btn-empleado:pressed {
+    -fx-background-color: #cdd8ff;
+    -fx-text-fill: #3d4ac0;
+    -fx-scale-x: 0.98;
+    -fx-scale-y: 0.98;
+}
+
+
+/* BOTON CLIENTE */
+.btn-cliente {
+    -fx-background-color: white;
+    -fx-text-fill: #667eea;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+}
+
+.btn-cliente:hover {
+    -fx-background-color: #e8ecff;
+    -fx-text-fill: #5563d1;
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
+.btn-cliente:pressed {
+    -fx-background-color: #cdd8ff;
+    -fx-text-fill: #3d4ac0;
+    -fx-scale-x: 0.98;
+    -fx-scale-y: 0.98;
+}
+

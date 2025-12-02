@@ -1,0 +1,336 @@
+/*
+   ESTILOS PARA HISTORIAL DE CLIENTE
+*/
+
+/* Contenedor principal */
+.historial-container {
+    -fx-background-color: #ecf0f1;
+}
+
+/* Header */
+.historial-header {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 0, 3);
+}
+
+/* Barra de acciones */
+.action-bar {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-padding: 15 20;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.08), 10, 0, 0, 2);
+}
+
+/* Botones */
+.btn-primary {
+    -fx-background-color: linear-gradient(to bottom, #3498db, #2980b9);
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-padding: 10 20;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 8, 0, 0, 2);
+}
+
+.btn-primary:hover {
+    -fx-background-color: linear-gradient(to bottom, #5dade2, #3498db);
+    -fx-effect: dropshadow(gaussian, rgba(52, 152, 219, 0.4), 12, 0, 0, 3);
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.btn-primary:pressed {
+    -fx-background-color: linear-gradient(to bottom, #2980b9, #21618c);
+    -fx-translate-y: 2;
+}
+
+.btn-success {
+    -fx-background-color: linear-gradient(to bottom, #27ae60, #229954);
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-padding: 10 20;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 8, 0, 0, 2);
+}
+
+.btn-success:hover {
+    -fx-background-color: linear-gradient(to bottom, #2ecc71, #27ae60);
+    -fx-effect: dropshadow(gaussian, rgba(39, 174, 96, 0.4), 12, 0, 0, 3);
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.btn-success:pressed {
+    -fx-background-color: linear-gradient(to bottom, #229954, #1e8449);
+    -fx-translate-y: 2;
+}
+
+.btn-success:disabled {
+    -fx-opacity: 0.5;
+    -fx-cursor: default;
+}
+
+.btn-secondary {
+    -fx-background-color: linear-gradient(to bottom, #95a5a6, #7f8c8d);
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-padding: 10 20;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 8, 0, 0, 2);
+}
+
+.btn-secondary:hover {
+    -fx-background-color: linear-gradient(to bottom, #bdc3c7, #95a5a6);
+    -fx-effect: dropshadow(gaussian, rgba(149, 165, 166, 0.4), 12, 0, 0, 3);
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.btn-secondary:pressed {
+    -fx-background-color: linear-gradient(to bottom, #7f8c8d, #707b7c);
+    -fx-translate-y: 2;
+}
+
+/* Contenedor de estadísticas */
+.stats-container {
+    -fx-padding: 0;
+}
+
+/* Tarjetas de estadísticas */
+.stat-card {
+    -fx-background-radius: 12;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.12), 15, 0, 0, 3);
+    -fx-cursor: hand;
+}
+
+.stat-card:hover {
+    -fx-translate-y: -5;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 20, 0, 0, 5);
+}
+
+.stat-card-blue {
+    -fx-background-color: linear-gradient(to bottom right, #3498db, #2980b9);
+}
+
+.stat-card-green {
+    -fx-background-color: linear-gradient(to bottom right, #27ae60, #229954);
+}
+
+.stat-card-orange {
+    -fx-background-color: linear-gradient(to bottom right, #f39c12, #e67e22);
+}
+
+.stat-card-purple {
+    -fx-background-color: linear-gradient(to bottom right, #9b59b6, #8e44ad);
+}
+
+/* Contenedor de tabla */
+.table-container {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.08), 10, 0, 0, 2);
+}
+
+/* Tabla de historial */
+.historial-table {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+/* Header de la tabla */
+.historial-table .column-header-background {
+    -fx-background-color: linear-gradient(to bottom, #34495e, #2c3e50);
+    -fx-background-radius: 10 10 0 0;
+}
+
+.historial-table .column-header-background .label {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+}
+
+.historial-table .column-header {
+    -fx-background-color: transparent;
+    -fx-border-color: rgba(255, 255, 255, 0.1);
+    -fx-border-width: 0 0 2 0;
+    -fx-padding: 15 10;
+}
+
+.historial-table .column-header .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-alignment: center-left;
+}
+
+.historial-table .column-header:hover {
+    -fx-background-color: rgba(52, 152, 219, 0.2);
+}
+
+/* Filler  */
+.historial-table .filler {
+    -fx-background-color: linear-gradient(to bottom, #34495e, #2c3e50);
+    -fx-background-radius: 0 10 0 0;
+}
+
+/* Filas de la tabla */
+.historial-table .table-row-cell {
+    -fx-background-color: white;
+    -fx-border-color: transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 10 0;
+}
+
+.historial-table .table-row-cell:odd {
+    -fx-background-color: #f8f9fa;
+}
+
+.historial-table .table-row-cell:even {
+    -fx-background-color: white;
+}
+
+.historial-table .table-row-cell:hover {
+    -fx-background-color: #e3f2fd;
+    -fx-cursor: hand;
+}
+
+.historial-table .table-row-cell:selected {
+    -fx-background-color: linear-gradient(to right, #3498db, #5dade2);
+    -fx-text-fill: white;
+}
+
+.historial-table .table-row-cell:selected .text {
+    -fx-fill: white;
+}
+
+.historial-table .table-row-cell:selected:hover {
+    -fx-background-color: linear-gradient(to right, #2980b9, #3498db);
+}
+
+/* Celdas */
+.historial-table .table-cell {
+    -fx-border-color: transparent;
+    -fx-padding: 12 10;
+    -fx-alignment: center-left;
+    -fx-text-fill: #2c3e50;
+    -fx-font-size: 13px;
+}
+
+.historial-table .table-row-cell:selected .table-cell {
+    -fx-text-fill: white;
+}
+
+/* Placeholder cuando no hay datos */
+.historial-table .placeholder .label {
+    -fx-text-fill: #95a5a6;
+    -fx-font-size: 16px;
+    -fx-font-style: italic;
+}
+
+/* Scrollbar vertical */
+.historial-table .scroll-bar:vertical {
+    -fx-background-color: transparent;
+}
+
+.historial-table .scroll-bar:vertical .track {
+    -fx-background-color: #ecf0f1;
+    -fx-background-radius: 5;
+}
+
+.historial-table .scroll-bar:vertical .thumb {
+    -fx-background-color: #95a5a6;
+    -fx-background-radius: 5;
+}
+
+.historial-table .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #7f8c8d;
+}
+
+.historial-table .scroll-bar:vertical .thumb:pressed {
+    -fx-background-color: #34495e;
+}
+
+/* Scrollbar horizontal */
+.historial-table .scroll-bar:horizontal {
+    -fx-background-color: transparent;
+}
+
+.historial-table .scroll-bar:horizontal .track {
+    -fx-background-color: #ecf0f1;
+    -fx-background-radius: 5;
+}
+
+.historial-table .scroll-bar:horizontal .thumb {
+    -fx-background-color: #95a5a6;
+    -fx-background-radius: 5;
+}
+
+.historial-table .scroll-bar:horizontal .thumb:hover {
+    -fx-background-color: #7f8c8d;
+}
+
+/* Sombra de la tabla */
+.historial-table {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.05), 10, 0, 0, 2);
+    -fx-background-radius: 10;
+}
+
+/* Estados en las celdas */
+.estado-activo {
+    -fx-background-color: #27ae60;
+    -fx-text-fill: white;
+    -fx-background-radius: 12;
+    -fx-padding: 4 12;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+.estado-finalizado {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-background-radius: 12;
+    -fx-padding: 4 12;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+.estado-cancelado {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: white;
+    -fx-background-radius: 12;
+    -fx-padding: 4 12;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+/* Animaciones */
+.stat-card {
+    -fx-transition: all 0.3s ease;
+}
+
+.button {
+    -fx-transition: all 0.2s ease;
+}
+
+/* Mejora de contraste en textos */
+.label {
+    -fx-text-fill: #2c3e50;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+    .stats-container {
+        -fx-wrap: true;
+    }
+
+    .stat-card {
+        -fx-min-width: 220px;
+    }
+}

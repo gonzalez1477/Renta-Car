@@ -1,0 +1,926 @@
+/*
+   ESTILOS PARA TABLAS - DASHBOARD EMPLEADO
+ */
+
+
+.table-view {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+    -fx-border-color: transparent;
+}
+
+
+.table-view:focused {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+}
+
+
+.table-view .column-header-background {
+    -fx-background-color: linear-gradient(to bottom, #34495e, #2c3e50);
+    -fx-background-radius: 10 10 0 0;
+}
+
+.table-view .column-header-background .label {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-border-color: rgba(255, 255, 255, 0.1);
+    -fx-border-width: 0 0 2 0;
+    -fx-padding: 15 10;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-alignment: center-left;
+}
+
+
+.table-view .column-header:hover {
+    -fx-background-color: rgba(52, 152, 219, 0.2);
+}
+
+
+.table-view .filler {
+    -fx-background-color: linear-gradient(to bottom, #34495e, #2c3e50);
+    -fx-background-radius: 0 10 0 0;
+}
+
+
+.table-row-cell {
+    -fx-background-color: white;
+    -fx-border-color: transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 8 0;
+}
+
+
+.table-row-cell:odd {
+    -fx-background-color: #f8f9fa;
+}
+
+.table-row-cell:even {
+    -fx-background-color: white;
+}
+
+
+.table-row-cell:hover {
+    -fx-background-color: #e3f2fd;
+    -fx-cursor: hand;
+}
+
+
+.table-row-cell:selected {
+    -fx-background-color: linear-gradient(to right, #3498db, #5dade2);
+    -fx-text-fill: white;
+}
+
+.table-row-cell:selected .text {
+    -fx-fill: white;
+}
+
+
+.table-row-cell:selected:hover {
+    -fx-background-color: linear-gradient(to right, #2980b9, #3498db);
+}
+
+
+.table-cell {
+    -fx-border-color: transparent;
+    -fx-padding: 12 10;
+    -fx-alignment: center-left;
+    -fx-text-fill: #2c3e50;
+    -fx-font-size: 13px;
+}
+
+
+.table-row-cell:selected .table-cell {
+    -fx-text-fill: white;
+}
+
+
+.table-view .placeholder .label {
+    -fx-text-fill: #95a5a6;
+    -fx-font-size: 16px;
+    -fx-font-style: italic;
+}
+
+
+.table-view .scroll-bar:vertical {
+    -fx-background-color: transparent;
+}
+
+.table-view .scroll-bar:vertical .track {
+    -fx-background-color: #ecf0f1;
+    -fx-background-radius: 5;
+}
+
+.table-view .scroll-bar:vertical .thumb {
+    -fx-background-color: #95a5a6;
+    -fx-background-radius: 5;
+}
+
+.table-view .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #7f8c8d;
+}
+
+.table-view .scroll-bar:vertical .thumb:pressed {
+    -fx-background-color: #34495e;
+}
+
+
+.table-view .scroll-bar:horizontal {
+    -fx-background-color: transparent;
+}
+
+.table-view .scroll-bar:horizontal .track {
+    -fx-background-color: #ecf0f1;
+    -fx-background-radius: 5;
+}
+
+.table-view .scroll-bar:horizontal .thumb {
+    -fx-background-color: #95a5a6;
+    -fx-background-radius: 5;
+}
+
+.table-view .scroll-bar:horizontal .thumb:hover {
+    -fx-background-color: #7f8c8d;
+}
+
+
+.table-view .scroll-bar .increment-button,
+.table-view .scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 5;
+}
+
+.table-view .scroll-bar .increment-arrow,
+.table-view .scroll-bar .decrement-arrow {
+    -fx-background-color: #7f8c8d;
+}
+
+/*
+   ESTILOS PERSONALIZADOS POR CONTENIDO
+*/
+
+
+.status-badge {
+    -fx-background-radius: 12;
+    -fx-padding: 4 12;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+}
+
+
+.status-disponible {
+    -fx-background-color: #27ae60;
+    -fx-text-fill: white;
+}
+
+.status-alquilado {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: white;
+}
+
+.status-mantenimiento {
+    -fx-background-color: #f39c12;
+    -fx-text-fill: white;
+}
+
+
+.status-activo {
+    -fx-background-color: #27ae60;
+    -fx-text-fill: white;
+}
+
+.status-inactivo {
+    -fx-background-color: #95a5a6;
+    -fx-text-fill: white;
+}
+
+
+.status-pendiente {
+    -fx-background-color: #f39c12;
+    -fx-text-fill: white;
+}
+
+.status-finalizado {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+}
+
+/*
+   ANIMACIONES Y TRANSICIONES
+ */
+
+.table-row-cell {
+    -fx-transition: all 0.2s ease;
+}
+
+.table-view .column-header:hover {
+    -fx-transition: all 0.15s ease;
+}
+
+/*
+   RESPONSIVIDAD Y AJUSTES FINALES
+ */
+
+
+.table-row-cell {
+    -fx-cell-size: 45;
+}
+
+
+.table-view .virtual-flow .clipped-container .sheet .table-row-cell:last-visible {
+    -fx-background-radius: 0 0 10 10;
+}
+
+.table-view {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.08), 15, 0, 0, 3);
+    -fx-background-radius: 10;
+}
+
+/*
+   CAMPOS DE BÚSQUEDA
+ */
+
+.text-field {
+    -fx-background-color: white;
+    -fx-background-radius: 8;
+    -fx-border-color: #bdc3c7;
+    -fx-border-radius: 8;
+    -fx-border-width: 2;
+    -fx-padding: 10 15;
+    -fx-font-size: 14px;
+    -fx-text-fill: #2c3e50;
+}
+
+.text-field:focused {
+    -fx-border-color: #3498db;
+    -fx-background-color: white;
+    -fx-effect: dropshadow(gaussian, rgba(52, 152, 219, 0.3), 8, 0, 0, 0);
+}
+
+.text-field:hover {
+    -fx-border-color: #95a5a6;
+}
+
+/*
+   MEJORAS VISUALES ADICIONALES
+*/
+
+
+.table-view .column-header-background .show-hide-columns-button {
+    -fx-background-color: transparent;
+}
+
+
+.table-cell .text {
+    -fx-font-smoothing-type: lcd;
+}
+
+
+.table-column-header .label .graphic {
+    -fx-opacity: 0.8;
+}
+
+.table-column-header:hover .label .graphic {
+    -fx-opacity: 1.0;
+}
+
+/*
+   ESTILOS INTERACTIVOS PARA BOTONES
+*/
+
+
+.button {
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 12 20;
+    -fx-border-width: 0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 8, 0, 0, 2);
+    -fx-transition: all 0.3s ease;
+}
+
+
+.button:pressed {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 4, 0, 0, 1);
+    -fx-translate-y: 2;
+    -fx-scale-x: 0.98;
+    -fx-scale-y: 0.98;
+}
+
+/* Botones deshabilitados */
+.button:disabled {
+    -fx-opacity: 0.5;
+    -fx-cursor: default;
+    -fx-effect: none;
+}
+
+/*
+   BOTONES VERDES
+*/
+
+.btn-success {
+    -fx-background-color: linear-gradient(to bottom, #27ae60, #229954);
+    -fx-text-fill: white;
+}
+
+.btn-success:hover {
+    -fx-background-color: linear-gradient(to bottom, #2ecc71, #27ae60);
+    -fx-effect: dropshadow(gaussian, rgba(39, 174, 96, 0.4), 12, 0, 0, 3);
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
+.btn-success:pressed {
+    -fx-background-color: linear-gradient(to bottom, #229954, #1e8449);
+}
+
+/*
+   BOTONES AZULES (Acciones Secundarias)
+*/
+
+.btn-primary {
+    -fx-background-color: linear-gradient(to bottom, #3498db, #2980b9);
+    -fx-text-fill: white;
+}
+
+.btn-primary:hover {
+    -fx-background-color: linear-gradient(to bottom, #5dade2, #3498db);
+    -fx-effect: dropshadow(gaussian, rgba(52, 152, 219, 0.4), 12, 0, 0, 3);
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
+.btn-primary:pressed {
+    -fx-background-color: linear-gradient(to bottom, #2980b9, #21618c);
+}
+
+/*
+   BOTONES ROJOS (Acciones Destructivas)
+*/
+
+.btn-danger {
+    -fx-background-color: linear-gradient(to bottom, #e74c3c, #c0392b);
+    -fx-text-fill: white;
+}
+
+.btn-danger:hover {
+    -fx-background-color: linear-gradient(to bottom, #ec7063, #e74c3c);
+    -fx-effect: dropshadow(gaussian, rgba(231, 76, 60, 0.4), 12, 0, 0, 3);
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
+.btn-danger:pressed {
+    -fx-background-color: linear-gradient(to bottom, #c0392b, #a93226);
+}
+
+/*
+   BOTONES NARANJAS
+  */
+
+.btn-warning {
+    -fx-background-color: linear-gradient(to bottom, #f39c12, #e67e22);
+    -fx-text-fill: white;
+}
+
+.btn-warning:hover {
+    -fx-background-color: linear-gradient(to bottom, #f5b041, #f39c12);
+    -fx-effect: dropshadow(gaussian, rgba(243, 156, 18, 0.4), 12, 0, 0, 3);
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
+.btn-warning:pressed {
+    -fx-background-color: linear-gradient(to bottom, #e67e22, #d68910);
+}
+
+/*
+   BOTONES MORADOS (Especiales)
+ */
+
+.btn-info {
+    -fx-background-color: linear-gradient(to bottom, #9b59b6, #8e44ad);
+    -fx-text-fill: white;
+}
+
+.btn-info:hover {
+    -fx-background-color: linear-gradient(to bottom, #af7ac5, #9b59b6);
+    -fx-effect: dropshadow(gaussian, rgba(155, 89, 182, 0.4), 12, 0, 0, 3);
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
+.btn-info:pressed {
+    -fx-background-color: linear-gradient(to bottom, #8e44ad, #7d3c98);
+}
+
+/*
+   BOTONES GRISES
+ */
+
+.btn-secondary {
+    -fx-background-color: linear-gradient(to bottom, #95a5a6, #7f8c8d);
+    -fx-text-fill: white;
+}
+
+.btn-secondary:hover {
+    -fx-background-color: linear-gradient(to bottom, #bdc3c7, #95a5a6);
+    -fx-effect: dropshadow(gaussian, rgba(149, 165, 166, 0.4), 12, 0, 0, 3);
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
+.btn-secondary:pressed {
+    -fx-background-color: linear-gradient(to bottom, #7f8c8d, #707b7c);
+}
+
+/*
+   BOTONES OSCUROS
+ */
+
+.btn-dark {
+    -fx-background-color: linear-gradient(to bottom, #34495e, #2c3e50);
+    -fx-text-fill: white;
+}
+
+.btn-dark:hover {
+    -fx-background-color: linear-gradient(to bottom, #5d6d7e, #34495e);
+    -fx-effect: dropshadow(gaussian, rgba(52, 73, 94, 0.4), 12, 0, 0, 3);
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
+.btn-dark:pressed {
+    -fx-background-color: linear-gradient(to bottom, #2c3e50, #1c2833);
+}
+
+/*
+   BOTONES OUTLINE
+*/
+
+.btn-outline {
+    -fx-background-color: transparent;
+    -fx-border-width: 2;
+    -fx-border-radius: 8;
+    -fx-effect: none;
+}
+
+.btn-outline-primary {
+    -fx-border-color: #3498db;
+    -fx-text-fill: #3498db;
+}
+
+.btn-outline-primary:hover {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(52, 152, 219, 0.3), 8, 0, 0, 2);
+}
+
+.btn-outline-success {
+    -fx-border-color: #27ae60;
+    -fx-text-fill: #27ae60;
+}
+
+.btn-outline-success:hover {
+    -fx-background-color: #27ae60;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(39, 174, 96, 0.3), 8, 0, 0, 2);
+}
+
+.btn-outline-danger {
+    -fx-border-color: #e74c3c;
+    -fx-text-fill: #e74c3c;
+}
+
+.btn-outline-danger:hover {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(231, 76, 60, 0.3), 8, 0, 0, 2);
+}
+
+/*
+   BOTONES PEQUEÑOS Y GRANDES
+ */
+
+.btn-sm {
+    -fx-padding: 8 15;
+    -fx-font-size: 12px;
+}
+
+.btn-lg {
+    -fx-padding: 15 30;
+    -fx-font-size: 16px;
+}
+
+/*
+   BOTONES ICONO (Solo icono, circular)
+*/
+
+.btn-icon {
+    -fx-background-radius: 50%;
+    -fx-padding: 10;
+    -fx-min-width: 40px;
+    -fx-min-height: 40px;
+    -fx-max-width: 40px;
+    -fx-max-height: 40px;
+}
+
+.btn-icon:hover {
+    -fx-rotate: 360;
+    -fx-transition: -fx-rotate 0.6s ease;
+}
+
+/*
+   BOTÓN CERRAR SESIÓN ESPECIAL
+*/
+
+.btn-logout {
+    -fx-background-color: linear-gradient(to bottom, #e74c3c, #c0392b);
+    -fx-text-fill: white;
+}
+
+.btn-logout:hover {
+    -fx-background-color: linear-gradient(to bottom, #ec7063, #e74c3c);
+    -fx-effect: dropshadow(gaussian, rgba(231, 76, 60, 0.5), 15, 0, 0, 3);
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+/*
+   BOTONES DE NAVEGACIÓN SIDEBAR
+*/
+
+.btn-nav {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-background-radius: 8;
+    -fx-text-fill: white;
+    -fx-alignment: CENTER-LEFT;
+    -fx-padding: 12;
+    -fx-cursor: hand;
+}
+
+.btn-nav:hover {
+    -fx-background-color: rgba(52, 152, 219, 0.3);
+    -fx-effect: dropshadow(gaussian, rgba(52, 152, 219, 0.2), 10, 0, 0, 0);
+    -fx-translate-x: 5;
+}
+
+.btn-nav-active {
+    -fx-background-color: rgba(52, 152, 219, 0.4);
+    -fx-effect: dropshadow(gaussian, rgba(52, 152, 219, 0.3), 8, 0, 0, 0);
+}
+
+.btn-nav:pressed {
+    -fx-translate-x: 3;
+    -fx-scale-x: 0.98;
+}
+
+/*
+   ANIMACIÓN DE PULSACIÓN
+ */
+
+@keyframes ripple {
+    from {
+        -fx-scale-x: 0.8;
+        -fx-scale-y: 0.8;
+        -fx-opacity: 0.5;
+    }
+    to {
+        -fx-scale-x: 1;
+        -fx-scale-y: 1;
+        -fx-opacity: 1;
+    }
+}
+
+.button:armed {
+    -fx-animation: ripple 0.2s ease-out;
+}
+
+/*
+   GRUPOS DE BOTONES
+ */
+
+.button-group .button {
+    -fx-background-radius: 0;
+    -fx-border-width: 0 1 0 0;
+    -fx-border-color: rgba(255, 255, 255, 0.3);
+}
+
+.button-group .button:first-child {
+    -fx-background-radius: 8 0 0 8;
+}
+
+.button-group .button:last-child {
+    -fx-background-radius: 0 8 8 0;
+    -fx-border-width: 0;
+}
+
+/*
+   BOTONES CON LOADING
+*/
+
+.btn-loading {
+    -fx-opacity: 0.7;
+    -fx-cursor: wait;
+}
+
+.btn-loading:hover {
+    -fx-scale-x: 1;
+    -fx-scale-y: 1;
+}
+
+
+
+.sidebar-section-label {
+    -fx-text-fill: #ecf0f1;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-padding: 15 10 8 10;
+    -fx-opacity: 0.9;
+    -fx-background-color: rgba(52, 152, 219, 0.15);
+    -fx-background-radius: 5;
+    -fx-border-color: rgba(52, 152, 219, 0.3);
+    -fx-border-width: 0 0 0 3;
+    -fx-border-radius: 5;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 3, 0, 0, 1);
+    -fx-letter-spacing: 1.5;
+}
+
+.sidebar-section-label:hover {
+    -fx-background-color: rgba(52, 152, 219, 0.25);
+    -fx-border-color: rgba(52, 152, 219, 0.5);
+    -fx-text-fill: white;
+    -fx-opacity: 1;
+}
+
+
+
+/*
+   ESTILOS PARA TARJETAS DEL DASHBOARD
+ */
+
+
+.stats-card {
+    -fx-background-radius: 15;
+    -fx-padding: 30;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 20, 0, 0, 5);
+    -fx-cursor: hand;
+}
+
+.stats-card:hover {
+    -fx-translate-y: -8;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 25, 0, 0, 10);
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+}
+
+
+.stats-card-blue {
+    -fx-background-color: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.stats-card-green {
+    -fx-background-color: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+}
+
+.stats-card-red {
+    -fx-background-color: linear-gradient(135deg, #eb3349 0%, #f45c43 100%);
+}
+
+.stats-card-orange {
+    -fx-background-color: linear-gradient(135deg, #f46b45 0%, #eea849 100%);
+}
+
+.stats-card-purple {
+    -fx-background-color: linear-gradient(135deg, #9d50bb 0%, #6e48aa 100%);
+}
+
+.stats-card-cyan {
+    -fx-background-color: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
+}
+
+
+.stats-icon {
+    -fx-font-size: 48px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 0, 2);
+}
+
+
+.stats-title {
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: normal;
+    -fx-opacity: 0.9;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 2, 0, 0, 1);
+}
+
+
+.stats-number {
+    -fx-text-fill: white;
+    -fx-font-size: 56px;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 0, 3);
+}
+
+
+.stats-card::before {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+
+/*
+   ESTILOS PARA TARJETAS DEL DASHBOARD
+ */
+
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .content {
+    -fx-background-color: transparent;
+}
+
+
+.grid-pane {
+    -fx-background-color: transparent;
+}
+
+
+.dashboard-card {
+    -fx-background-radius: 18 !important;
+    -fx-padding: 28 !important;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.12), 15, 0, 0, 5) !important;
+    -fx-cursor: hand !important;
+    -fx-border-radius: 18 !important;
+    -fx-border-width: 1 !important;
+    -fx-border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.dashboard-card:hover {
+    -fx-translate-y: -10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.22), 25, 0, 0, 12) !important;
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
+
+.card-blue {
+    -fx-background-color: linear-gradient(to bottom right, #667eea 0%, #764ba2 100%) !important;
+}
+
+.card-blue:hover {
+    -fx-background-color: linear-gradient(to bottom right, #7c8efc 0%, #8b5cb8 100%) !important;
+}
+
+.card-green {
+    -fx-background-color: linear-gradient(to bottom right, #11998e 0%, #38ef7d 100%) !important;
+}
+
+.card-green:hover {
+    -fx-background-color: linear-gradient(to bottom right, #17b3a6 0%, #4dff92 100%) !important;
+}
+
+.card-red {
+    -fx-background-color: linear-gradient(to bottom right, #eb3349 0%, #f45c43 100%) !important;
+}
+
+.card-red:hover {
+    -fx-background-color: linear-gradient(to bottom right, #ff4258 0%, #ff6f5e 100%) !important;
+}
+
+.card-orange {
+    -fx-background-color: linear-gradient(to bottom right, #f46b45 0%, #eea849 100%) !important;
+}
+
+.card-orange:hover {
+    -fx-background-color: linear-gradient(to bottom right, #ff7a54 0%, #ffb855 100%) !important;
+}
+
+.card-purple {
+    -fx-background-color: linear-gradient(to bottom right, #9d50bb 0%, #6e48aa 100%) !important;
+}
+
+.card-purple:hover {
+    -fx-background-color: linear-gradient(to bottom right, #b15fd1 0%, #7f55c2 100%) !important;
+}
+
+.card-teal {
+    -fx-background-color: linear-gradient(to bottom right, #00d2ff 0%, #3a7bd5 100%) !important;
+}
+
+.card-teal:hover {
+    -fx-background-color: linear-gradient(to bottom right, #1ae2ff 0%, #4a8be5 100%) !important;
+}
+
+
+.card-icon {
+    -fx-font-size: 52px !important;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 6, 0, 0, 3) !important;
+    -fx-min-width: 60px !important;
+    -fx-text-fill: white !important;
+}
+
+
+.card-title {
+    -fx-text-fill: rgba(255, 255, 255, 0.95) !important;
+    -fx-font-size: 15px !important;
+    -fx-font-weight: 600 !important;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 2, 0, 0, 1) !important;
+}
+
+
+.card-number {
+    -fx-text-fill: white !important;
+    -fx-font-size: 52px !important;
+    -fx-font-weight: bold !important;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 0, 3) !important;
+}
+
+
+.card-divider {
+    -fx-min-height: 2 !important;
+    -fx-max-height: 2 !important;
+    -fx-background-color: rgba(255, 255, 255, 0.25) !important;
+    -fx-background-radius: 2 !important;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 2, 0, 0, 1) !important;
+}
+
+
+.card-indicator {
+    -fx-min-width: 8 !important;
+    -fx-max-width: 8 !important;
+    -fx-min-height: 8 !important;
+    -fx-max-height: 8 !important;
+    -fx-background-radius: 50% !important;
+    -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.5), 4, 0, 0, 0) !important;
+}
+
+.indicator-blue {
+    -fx-background-color: #e3f2fd !important;
+}
+
+.indicator-green {
+    -fx-background-color: #e8f5e9 !important;
+}
+
+.indicator-red {
+    -fx-background-color: #ffebee !important;
+}
+
+.indicator-orange {
+    -fx-background-color: #fff3e0 !important;
+}
+
+.indicator-purple {
+    -fx-background-color: #f3e5f5 !important;
+}
+
+.indicator-teal {
+    -fx-background-color: #e0f7fa !important;
+}
+
+
+.card-description {
+    -fx-text-fill: rgba(255, 255, 255, 0.85) !important;
+    -fx-font-size: 13px !important;
+    -fx-font-weight: normal !important;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 2, 0, 0, 1) !important;
+}
+
+
+.dashboard-card:pressed {
+    -fx-translate-y: -5;
+    -fx-scale-x: 0.99;
+    -fx-scale-y: 0.99;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 10, 0, 0, 5) !important;
+}
+
+
+.dashboard-card .h-box,
+.dashboard-card .v-box {
+    -fx-background-color: transparent !important;
+}
+
+
+.dashboard-card .label {
+    -fx-background-color: transparent !important;
+}

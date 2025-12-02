@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.sistema_rentacar.Controllers.Cliente.DialogoAlquilerController"
+      spacing="0" prefWidth="550" maxWidth="600" prefHeight="650" maxHeight="700"
+      styleClass="dialog-container"
+      style="-fx-background-color: #f8f9fa;"
+      stylesheets="@../../css/estilosDialogoAlquiler.css">
+
+    <!-- Header del diálogo - REDUCIDO -->
+    <HBox alignment="CENTER_LEFT" spacing="12" styleClass="dialog-header"
+          style="-fx-background-color: linear-gradient(to right, #2980b9, #3498db); -fx-padding: 18 25;">
+        <Label text="🚗" style="-fx-font-size: 28px;"/>
+        <VBox spacing="2">
+            <Label text="Confirmar Alquiler" style="-fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold;"/>
+            <Label text="Complete los detalles de su reservación" style="-fx-text-fill: rgba(255,255,255,0.9); -fx-font-size: 12px;"/>
+        </VBox>
+    </HBox>
+
+    <!-- Contenido del diálogo -->
+    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS"
+                style="-fx-background-color: transparent; -fx-background: transparent;">
+        <VBox spacing="16" style="-fx-padding: 20;">
+
+            <!-- Sección: Información del Vehículo -->
+            <VBox spacing="12" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 8, 0, 0, 2);">
+                <HBox alignment="CENTER_LEFT" spacing="8">
+                    <Label text="🚙" style="-fx-font-size: 18px;"/>
+                    <Label text="Detalles del Vehículo" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Region style="-fx-min-width: 35; -fx-background-color: linear-gradient(to right, #3498db, transparent); -fx-min-height: 2;"/>
+                </HBox>
+
+                <GridPane hgap="15" vgap="12">
+                    <VBox spacing="4" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                        <Label text="Vehículo" style="-fx-font-size: 11px; -fx-text-fill: #7f8c8d; -fx-font-weight: bold;"/>
+                        <Label fx:id="lblVehiculo" text="Toyota Corolla 2024" style="-fx-font-size: 14px; -fx-text-fill: #2c3e50; -fx-font-weight: bold;"/>
+                    </VBox>
+
+                    <VBox spacing="4" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                        <Label text="Tarifa Diaria" style="-fx-font-size: 11px; -fx-text-fill: #7f8c8d; -fx-font-weight: bold;"/>
+                        <Label fx:id="lblTarifa" text="\$55.00 / día" style="-fx-font-size: 14px; -fx-text-fill: #27ae60; -fx-font-weight: bold;"/>
+                    </VBox>
+
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="50"/>
+                        <ColumnConstraints percentWidth="50"/>
+                    </columnConstraints>
+                </GridPane>
+            </VBox>
+
+            <!-- Sección: Fechas y Duración -->
+            <VBox spacing="12" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 8, 0, 0, 2);">
+                <HBox alignment="CENTER_LEFT" spacing="8">
+                    <Label text="📅" style="-fx-font-size: 18px;"/>
+                    <Label text="Período de Alquiler" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Region style="-fx-min-width: 35; -fx-background-color: linear-gradient(to right, #27ae60, transparent); -fx-min-height: 2;"/>
+                </HBox>
+
+                <GridPane hgap="15" vgap="12">
+                    <!-- Fecha Inicio -->
+                    <VBox spacing="4" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                        <Label text="Fecha de Inicio *" style="-fx-font-size: 12px; -fx-text-fill: #2c3e50; -fx-font-weight: bold;"/>
+                        <DatePicker fx:id="dpFechaInicio"
+                                    style="-fx-pref-height: 35px; -fx-font-size: 12px;"
+                                    maxWidth="Infinity" disable="true"/>
+                    </VBox>
+
+                    <!-- Días de Alquiler -->
+                    <VBox spacing="4" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                        <Label text="Días de Alquiler *" style="-fx-font-size: 12px; -fx-text-fill: #2c3e50; -fx-font-weight: bold;"/>
+                        <Spinner fx:id="spinnerDias"
+                                 style="-fx-pref-height: 35px;"
+                                 editable="true" maxWidth="Infinity"/>
+                    </VBox>
+
+                    <!-- Fecha Fin -->
+                    <VBox spacing="4" GridPane.columnIndex="0" GridPane.rowIndex="1" GridPane.columnSpan="2">
+                        <Label text="Fecha de Finalización" style="-fx-font-size: 12px; -fx-text-fill: #2c3e50; -fx-font-weight: bold;"/>
+                        <DatePicker fx:id="dpFechaFin"
+                                    style="-fx-pref-height: 35px; -fx-font-size: 12px;"
+                                    maxWidth="Infinity"/>
+                    </VBox>
+
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="50"/>
+                        <ColumnConstraints percentWidth="50"/>
+                    </columnConstraints>
+                </GridPane>
+
+                <!-- Nota informativa -->
+                <HBox spacing="8" alignment="CENTER_LEFT"
+                      style="-fx-background-color: #e8f5e9; -fx-padding: 10; -fx-background-radius: 6;">
+                    <Label text="" style="-fx-font-size: 13px;"/>
+                    <Label text="La fecha de inicio es hoy. Ajuste los días para calcular la fecha de finalización."
+                           style="-fx-font-size: 11px; -fx-text-fill: #2c3e50;" wrapText="true"/>
+                </HBox>
+            </VBox>
+
+            <!-- Sección: Costos -->
+            <VBox spacing="12" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 8, 0, 0, 2);">
+                <HBox alignment="CENTER_LEFT" spacing="8">
+                    <Label text="💰" style="-fx-font-size: 18px;"/>
+                    <Label text="Desglose de Costos" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Region style="-fx-min-width: 35; -fx-background-color: linear-gradient(to right, #f39c12, transparent); -fx-min-height: 2;"/>
+                </HBox>
+
+                <GridPane hgap="15" vgap="10">
+                    <VBox spacing="4" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                        <Label text="Depósito Requerido" style="-fx-font-size: 12px; -fx-text-fill: #2c3e50; -fx-font-weight: bold;"/>
+                        <TextField fx:id="txtDeposito"
+                                   style="-fx-pref-height: 35px; -fx-font-size: 12px;"
+                                   promptText="\$0.00" disable="true"/>
+                    </VBox>
+
+                    <VBox spacing="4" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                        <Label text="Subtotal" style="-fx-font-size: 12px; -fx-text-fill: #2c3e50; -fx-font-weight: bold;"/>
+                        <Label fx:id="lblSubtotal" text="\$0.00"
+                               style="-fx-font-size: 15px; -fx-text-fill: #2c3e50; -fx-font-weight: bold; -fx-padding: 8 0 0 0;"/>
+                    </VBox>
+
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="50"/>
+                        <ColumnConstraints percentWidth="50"/>
+                    </columnConstraints>
+                </GridPane>
+
+                <!-- Total destacado -->
+                <VBox spacing="8" alignment="CENTER"
+                      style="-fx-background-color: linear-gradient(to right, #f39c12, #e67e22); -fx-padding: 12; -fx-background-radius: 8;">
+                    <Label text="COSTO TOTAL" style="-fx-text-fill: white; -fx-font-size: 13px; -fx-font-weight: bold;"/>
+                    <Label fx:id="lblCostoTotal" text="\$0.00" style="-fx-text-fill: white; -fx-font-size: 28px; -fx-font-weight: bold;"/>
+                    <Label text="Incluye depósito + tarifa por días de alquiler"
+                           style="-fx-font-size: 10px; -fx-text-fill: rgba(255,255,255,0.9); -fx-font-style: italic;"/>
+                </VBox>
+            </VBox>
+
+            <!-- Metodos de pago-->
+            <VBox spacing="12" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 8, 0, 0, 2);">
+                <HBox alignment="CENTER_LEFT" spacing="8">
+                    <Label text="💳" style="-fx-font-size: 18px;"/>
+                    <Label text="Método de Pago" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Region style="-fx-min-width: 35; -fx-background-color: linear-gradient(to right, #9b59b6, transparent); -fx-min-height: 2;"/>
+                </HBox>
+
+                <VBox spacing="12">
+                    <Label text="Seleccione cómo pagará el depósito:"
+                           style="-fx-font-size: 13px; -fx-text-fill: #2c3e50; -fx-font-weight: bold;"/>
+
+                    <HBox spacing="20" alignment="CENTER_LEFT">
+                        <RadioButton fx:id="rbEfectivo" text="💵 Efectivo"
+                                     style="-fx-font-size: 13px;" selected="true"/>
+                        <RadioButton fx:id="rbTarjeta" text="💳 Tarjeta"
+                                     style="-fx-font-size: 13px;"/>
+                    </HBox>
+
+                    <Label fx:id="lblInfoMetodoPago"
+                           text="El depósito se pagará en efectivo al confirmar el alquiler."
+                           style="-fx-font-size: 11px; -fx-text-fill: #7f8c8d; -fx-background-color: #f5f5f5; -fx-padding: 10; -fx-background-radius: 5;"
+                           wrapText="true"/>
+                </VBox>
+            </VBox>
+
+            <!-- Sección: Observaciones -->
+            <VBox spacing="12" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 8, 0, 0, 2);">
+                <HBox alignment="CENTER_LEFT" spacing="8">
+                    <Label text="📝" style="-fx-font-size: 18px;"/>
+                    <Label text="Observaciones" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Region style="-fx-min-width: 35; -fx-background-color: linear-gradient(to right, #e74c3c, transparent); -fx-min-height: 2;"/>
+                </HBox>
+
+                <VBox spacing="6">
+                    <Label text="Notas Adicionales (Opcional)" style="-fx-font-size: 12px; -fx-text-fill: #2c3e50; -fx-font-weight: bold;"/>
+                    <TextArea fx:id="txtObservaciones"
+                              style="-fx-font-size: 12px;"
+                              prefRowCount="3" prefHeight="70"
+                              promptText="Agregue cualquier solicitud especial o comentario sobre el alquiler..."/>
+                    <Label text="💡 Puede incluir preferencias de entrega, condiciones especiales, etc."
+                           style="-fx-text-fill: #7f8c8d; -fx-font-size: 10px; -fx-padding: 3 0 0 5;"/>
+                </VBox>
+            </VBox>
+
+        </VBox>
+    </ScrollPane>
+
+    <!-- Footer con botones -->
+    <VBox spacing="0" style="-fx-background-color: white; -fx-padding: 15 25;">
+
+        <!-- Nota de campos obligatorios -->
+        <HBox alignment="CENTER_LEFT" spacing="6" style="-fx-padding: 0 0 12 0;">
+            <Label text="*" style="-fx-text-fill: #e74c3c; -fx-font-size: 14px; -fx-font-weight: bold;"/>
+            <Label text="Campos obligatorios"
+                   style="-fx-text-fill: #7f8c8d; -fx-font-size: 11px; -fx-font-weight: bold;"/>
+        </HBox>
+
+        <Separator style="-fx-background-color: #e0e0e0;"/>
+
+        <!-- Botones de acción -->
+        <HBox spacing="12" alignment="CENTER" style="-fx-padding: 15 0 0 0;">
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <Button fx:id="btnCancelar" text="Cancelar" onAction="#handleCancelar"
+                    style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6; -fx-cursor: hand; -fx-font-size: 13px;"
+                    prefWidth="150" prefHeight="40"/>
+
+            <Button fx:id="btnConfirmar" text="Confirmar Alquiler" onAction="#handleConfirmar"
+                    style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6; -fx-cursor: hand; -fx-font-size: 13px;"
+                    prefWidth="200" prefHeight="40"/>
+        </HBox>
+    </VBox>
+
+</VBox>

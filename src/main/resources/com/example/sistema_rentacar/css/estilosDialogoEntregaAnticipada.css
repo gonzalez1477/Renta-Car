@@ -1,0 +1,257 @@
+/*
+   ESTILOS PARA DIÁLOGO DE ENTREGA ANTICIPADA
+*/
+
+/* Contenedor principal del diálogo */
+.entrega-dialog-container {
+    -fx-background-color: #f8f9fa !important;
+    -fx-background-radius: 12 !important;
+}
+
+/* Header del diálogo */
+.entrega-header {
+    -fx-background-color: #e67e22 !important;
+    -fx-background-radius: 12 12 0 0 !important;
+    -fx-padding: 25 30 !important;
+}
+
+.entrega-title {
+    -fx-font-size: 24px !important;
+    -fx-font-weight: bold !important;
+    -fx-text-fill: white !important;
+}
+
+.entrega-subtitle {
+    -fx-font-size: 13px !important;
+    -fx-text-fill: rgba(255, 255, 255, 0.9) !important;
+}
+
+.entrega-icon {
+    -fx-font-size: 32px !important;
+}
+
+/* Sección de información del alquiler */
+.info-alquiler-box {
+    -fx-background-color: #fff3cd !important;
+    -fx-border-color: #ffc107 !important;
+    -fx-border-width: 2 !important;
+    -fx-border-radius: 10 !important;
+    -fx-background-radius: 10 !important;
+    -fx-padding: 20 !important;
+}
+
+.info-section-title {
+    -fx-font-size: 16px !important;
+    -fx-font-weight: bold !important;
+    -fx-text-fill: #856404 !important;
+}
+
+.info-label {
+    -fx-font-size: 13px !important;
+    -fx-font-weight: bold !important;
+    -fx-text-fill: #6c5a00 !important;
+}
+
+.info-value {
+    -fx-font-size: 13px !important;
+    -fx-text-fill: #2c3e50 !important;
+    -fx-font-weight: 600 !important;
+}
+
+.info-value-highlight {
+    -fx-font-size: 13px !important;
+    -fx-text-fill: #e74c3c !important;
+    -fx-font-weight: bold !important;
+}
+
+/* Sección de reembolso */
+.reembolso-box {
+    -fx-background-color: #d4edda !important;
+    -fx-border-color: #28a745 !important;
+    -fx-border-width: 2 !important;
+    -fx-border-radius: 10 !important;
+    -fx-background-radius: 10 !important;
+    -fx-padding: 20 !important;
+}
+
+.reembolso-title {
+    -fx-font-size: 16px !important;
+    -fx-font-weight: bold !important;
+    -fx-text-fill: #155724 !important;
+}
+
+.reembolso-label {
+    -fx-font-size: 14px !important;
+    -fx-font-weight: 600 !important;
+    -fx-text-fill: #155724 !important;
+}
+
+.reembolso-dias {
+    -fx-font-size: 20px !important;
+    -fx-font-weight: bold !important;
+    -fx-text-fill: #27ae60 !important;
+}
+
+.reembolso-monto {
+    -fx-font-size: 26px !important;
+    -fx-font-weight: bold !important;
+    -fx-text-fill: #27ae60 !important;
+}
+
+/* Sección de motivo */
+.motivo-section {
+    -fx-background-color: white !important;
+    -fx-background-radius: 10 !important;
+    -fx-padding: 20 !important;
+}
+
+.motivo-label {
+    -fx-font-size: 14px !important;
+    -fx-font-weight: bold !important;
+    -fx-text-fill: #e74c3c !important;
+}
+
+.motivo-textarea {
+    -fx-background-color: #f8f9fa !important;
+    -fx-border-color: #e67e22 !important;
+    -fx-border-width: 2 !important;
+    -fx-border-radius: 8 !important;
+    -fx-background-radius: 8 !important;
+    -fx-padding: 12 15 !important;
+    -fx-font-size: 13px !important;
+    -fx-text-fill: #2c3e50 !important;
+}
+
+.motivo-textarea:focused {
+    -fx-border-color: #e67e22 !important;
+    -fx-background-color: white !important;
+}
+
+.motivo-textarea .content {
+    -fx-background-color: transparent !important;
+}
+
+.error-label {
+    -fx-font-size: 11px !important;
+    -fx-text-fill: #e74c3c !important;
+    -fx-font-weight: bold !important;
+}
+
+/* Nota informativa */
+.nota-box {
+    -fx-background-color: #e3f2fd !important;
+    -fx-border-color: #2196f3 !important;
+    -fx-border-width: 1 !important;
+    -fx-border-radius: 8 !important;
+    -fx-background-radius: 8 !important;
+    -fx-padding: 12 15 !important;
+}
+
+.nota-text {
+    -fx-font-size: 12px !important;
+    -fx-text-fill: #1565c0 !important;
+    -fx-font-style: italic !important;
+}
+
+/* Separadores */
+.entrega-separator .line {
+    -fx-border-color: #e1e8ed !important;
+    -fx-border-width: 1 0 0 0 !important;
+}
+
+/* Botones */
+.btn-confirmar-entrega {
+    -fx-background-color: #27ae60 !important;
+    -fx-text-fill: white !important;
+    -fx-font-size: 15px !important;
+    -fx-font-weight: bold !important;
+    -fx-background-radius: 8 !important;
+    -fx-cursor: hand !important;
+}
+
+.btn-confirmar-entrega:hover {
+    -fx-background-color: #229954 !important;
+}
+
+.btn-confirmar-entrega:pressed {
+    -fx-background-color: #1e8449 !important;
+}
+
+.btn-cancelar-entrega {
+    -fx-background-color: #95a5a6 !important;
+    -fx-text-fill: white !important;
+    -fx-font-size: 15px !important;
+    -fx-font-weight: bold !important;
+    -fx-background-radius: 8 !important;
+    -fx-cursor: hand !important;
+}
+
+.btn-cancelar-entrega:hover {
+    -fx-background-color: #7f8c8d !important;
+}
+
+.btn-cancelar-entrega:pressed {
+    -fx-background-color: #646d6e !important;
+}
+
+/* Footer de botones */
+.entrega-footer {
+    -fx-background-color: white !important;
+    -fx-padding: 20 30 !important;
+    -fx-border-color: #e1e8ed !important;
+    -fx-border-width: 1 0 0 0 !important;
+}
+
+/* ScrollPane */
+.entrega-scroll-pane {
+    -fx-background-color: transparent !important;
+    -fx-background: transparent !important;
+}
+
+.entrega-scroll-pane .viewport {
+    -fx-background-color: transparent !important;
+}
+
+.entrega-scroll-pane .scroll-bar:vertical {
+    -fx-background-color: transparent !important;
+    -fx-padding: 0 4 0 0 !important;
+}
+
+.entrega-scroll-pane .scroll-bar:vertical .thumb {
+    -fx-background-color: #bdc3c7 !important;
+    -fx-background-radius: 4 !important;
+}
+
+.entrega-scroll-pane .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #95a5a6 !important;
+}
+
+/* Alert box */
+.alert-box {
+    -fx-background-color: #fff3cd !important;
+    -fx-border-color: #ffc107 !important;
+    -fx-border-width: 2 !important;
+    -fx-border-radius: 8 !important;
+    -fx-background-radius: 8 !important;
+    -fx-padding: 15 !important;
+}
+
+.alert-icon {
+    -fx-font-size: 24px !important;
+}
+
+.alert-title {
+    -fx-font-size: 14px !important;
+    -fx-font-weight: bold !important;
+    -fx-text-fill: #856404 !important;
+}
+
+.alert-text {
+    -fx-font-size: 12px !important;
+    -fx-text-fill: #856404 !important;
+}
+
+/* Iconos decorativos */
+.icon-decoration {
+    -fx-font-size: 20px !important;
+}

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.sistema_rentacar.Controllers.Cliente.HistorialClienteController"
+            prefHeight="700" prefWidth="1000"
+            styleClass="historial-container"
+            stylesheets="@../../css/estilosHistorialCliente.css">
+
+    <!-- Header con gradiente -->
+    <top>
+        <VBox styleClass="historial-header" style="-fx-background-color: linear-gradient(to right, #2c3e50, #34495e); -fx-padding: 25 30;">
+            <HBox alignment="CENTER_LEFT" spacing="15">
+                <Label text="📊" style="-fx-font-size: 32px;"/>
+                <VBox spacing="3">
+                    <Label fx:id="lblCliente" text="Historial de Alquileres"
+                           style="-fx-text-fill: white; -fx-font-size: 24px; -fx-font-weight: bold;"/>
+                    <Label text="Gestiona tus alquileres activos y finalizados"
+                           style="-fx-text-fill: rgba(255, 255, 255, 0.8); -fx-font-size: 13px;"/>
+                </VBox>
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- Contenido principal -->
+    <center>
+        <VBox spacing="20" style="-fx-padding: 30; -fx-background-color: #ecf0f1;">
+
+            <!-- Barra de acciones -->
+            <HBox spacing="15" alignment="CENTER_LEFT" styleClass="action-bar">
+                <Button fx:id="btnRefrescar" text="🔄" onAction="#handleRefrescar"
+                        styleClass="btn-primary"/>
+
+                <Button fx:id="btnFinalizar" text="Finalizar Alquiler" onAction="#handleFinalizarAlquiler" disable="true"
+                        styleClass="btn-success"/>
+
+                <Region HBox.hgrow="ALWAYS"/>
+
+                <Button fx:id="btnVolver" text="Volver al Catálogo" onAction="#handleVolver"
+                        styleClass="btn-secondary"/>
+            </HBox>
+
+            <!-- Estadísticas rápidas -->
+            <HBox spacing="20" styleClass="stats-container">
+                <VBox spacing="8" styleClass="stat-card, stat-card-blue" HBox.hgrow="ALWAYS">
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <Label text="📋" style="-fx-font-size: 24px;"/>
+                        <Label text="Total Alquileres" style="-fx-text-fill: rgba(255,255,255,0.9); -fx-font-size: 13px;"/>
+                    </HBox>
+                    <Label fx:id="lblTotalAlquileres" text="0"
+                           style="-fx-text-fill: white; -fx-font-size: 32px; -fx-font-weight: bold;"/>
+                </VBox>
+
+                <VBox spacing="8" styleClass="stat-card, stat-card-green" HBox.hgrow="ALWAYS">
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <Label text="✅" style="-fx-font-size: 24px;"/>
+                        <Label text="Finalizados" style="-fx-text-fill: rgba(255,255,255,0.9); -fx-font-size: 13px;"/>
+                    </HBox>
+                    <Label fx:id="lblFinalizados" text="0"
+                           style="-fx-text-fill: white; -fx-font-size: 32px; -fx-font-weight: bold;"/>
+                </VBox>
+
+                <VBox spacing="8" styleClass="stat-card, stat-card-orange" HBox.hgrow="ALWAYS">
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <Label text="⏳" style="-fx-font-size: 24px;"/>
+                        <Label text="En Curso" style="-fx-text-fill: rgba(255,255,255,0.9); -fx-font-size: 13px;"/>
+                    </HBox>
+                    <Label fx:id="lblEnCurso" text="0"
+                           style="-fx-text-fill: white; -fx-font-size: 32px; -fx-font-weight: bold;"/>
+                </VBox>
+
+                <VBox spacing="8" styleClass="stat-card, stat-card-purple" HBox.hgrow="ALWAYS">
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <Label text="💰" style="-fx-font-size: 24px;"/>
+                        <Label text="Total Gastado" style="-fx-text-fill: rgba(255,255,255,0.9); -fx-font-size: 13px;"/>
+                    </HBox>
+                    <Label fx:id="lblTotalGastado" text="\$0.00"
+                           style="-fx-text-fill: white; -fx-font-size: 28px; -fx-font-weight: bold;"/>
+                </VBox>
+            </HBox>
+
+            <!-- Tabla de historial -->
+            <VBox spacing="12" VBox.vgrow="ALWAYS" styleClass="table-container">
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label text="📑" style="-fx-font-size: 18px;"/>
+                    <Label text="Registro de Alquileres"
+                           style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Label fx:id="lblCantidadRegistros" text="0 registros"
+                           style="-fx-font-size: 13px; -fx-text-fill: #7f8c8d;"/>
+                </HBox>
+
+                <TableView fx:id="tableHistorial" VBox.vgrow="ALWAYS" styleClass="historial-table">
+                    <columns>
+                        <TableColumn fx:id="colId" text="ID" prefWidth="60"/>
+                        <TableColumn fx:id="colVehiculo" text="Vehículo" prefWidth="200"/>
+                        <TableColumn fx:id="colPlaca" text="Placa" prefWidth="100"/>
+                        <TableColumn fx:id="colFechaInicio" text="Fecha Inicio" prefWidth="140"/>
+                        <TableColumn fx:id="colFechaFin" text="Fecha Fin" prefWidth="140"/>
+                        <TableColumn fx:id="colDias" text="Días" prefWidth="70"/>
+                        <TableColumn fx:id="colCosto" text="Costo Total" prefWidth="110"/>
+                        <TableColumn fx:id="colEstado" text="Estado" prefWidth="120"/>
+                    </columns>
+                </TableView>
+            </VBox>
+
+        </VBox>
+    </center>
+
+</BorderPane>

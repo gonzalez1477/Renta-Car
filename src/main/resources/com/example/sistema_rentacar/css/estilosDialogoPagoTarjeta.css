@@ -1,0 +1,301 @@
+/*
+   ESTILOS PARA DIÁLOGO DE PAGO CON TARJETA
+*/
+
+/* Contenedor principal del diálogo */
+.payment-dialog-container {
+    -fx-background-color: white !important;
+    -fx-background-radius: 12 !important;
+    -fx-padding: 25 !important;
+}
+
+/* Header del diálogo de pago */
+.payment-header {
+    -fx-background-color: #764ba2 !important;
+    -fx-background-radius: 10 !important;
+    -fx-padding: 20 25 !important;
+}
+
+.payment-title {
+    -fx-font-size: 22px !important;
+    -fx-font-weight: bold !important;
+    -fx-text-fill: white !important;
+}
+
+.payment-subtitle {
+    -fx-font-size: 12px !important;
+    -fx-text-fill: white !important;
+}
+
+.payment-icon {
+    -fx-font-size: 28px !important;
+}
+
+/* Sección de resumen de pago */
+.payment-summary {
+    -fx-background-color: #f5576c !important;
+    -fx-background-radius: 10 !important;
+    -fx-padding: 18 !important;
+}
+
+.summary-label {
+    -fx-font-size: 13px !important;
+    -fx-font-weight: bold !important;
+    -fx-text-fill: white !important;
+}
+
+.summary-amount {
+    -fx-font-size: 30px !important;
+    -fx-font-weight: bold !important;
+    -fx-text-fill: white !important;
+}
+
+.summary-concept {
+    -fx-font-size: 12px !important;
+    -fx-text-fill: white !important;
+    -fx-font-style: italic !important;
+}
+
+/* Tarjeta de crédito visual */
+.card-visual-container {
+    -fx-background-color: #2c3e50 !important;
+    -fx-background-radius: 12 !important;
+    -fx-padding: 20 !important;
+    -fx-min-height: 160 !important;
+}
+
+.card-chip {
+    -fx-background-color: gold !important;
+    -fx-background-radius: 6 !important;
+    -fx-min-width: 45 !important;
+    -fx-min-height: 35 !important;
+}
+
+.card-number-display {
+    -fx-font-size: 22px !important;
+    -fx-font-weight: bold !important;
+    -fx-text-fill: white !important;
+    -fx-font-family: "Courier New", monospace !important;
+}
+
+.card-name-display {
+    -fx-font-size: 14px !important;
+    -fx-font-weight: bold !important;
+    -fx-text-fill: white !important;
+}
+
+.card-info-label {
+    -fx-font-size: 9px !important;
+    -fx-text-fill: #95a5a6 !important;
+    -fx-font-weight: bold !important;
+}
+
+.card-brand-icon {
+    -fx-font-size: 28px !important;
+}
+
+/* Labels de campos */
+.payment-field-label {
+    -fx-font-size: 13px !important;
+    -fx-font-weight: bold !important;
+    -fx-text-fill: #34495e !important;
+}
+
+/* Campos de entrada personalizados */
+.payment-field {
+    -fx-background-color: #f8f9fa !important;
+    -fx-border-color: #d1d8e0 !important;
+    -fx-border-width: 2 !important;
+    -fx-border-radius: 8 !important;
+    -fx-background-radius: 8 !important;
+    -fx-padding: 10 15 !important;
+    -fx-font-size: 13px !important;
+    -fx-text-fill: #2c3e50 !important;
+    -fx-font-weight: bold !important;
+}
+
+.payment-field:focused {
+    -fx-border-color: #667eea !important;
+    -fx-background-color: white !important;
+}
+
+/* Campo de número de tarjeta específico */
+.card-number-field {
+    -fx-background-color: #f8f9fa !important;
+    -fx-border-color: #d1d8e0 !important;
+    -fx-border-width: 2 !important;
+    -fx-border-radius: 8 !important;
+    -fx-background-radius: 8 !important;
+    -fx-padding: 10 15 !important;
+    -fx-font-size: 14px !important;
+    -fx-font-family: "Courier New", monospace !important;
+    -fx-text-fill: #2c3e50 !important;
+    -fx-font-weight: bold !important;
+}
+
+.card-number-field:focused {
+    -fx-border-color: #667eea !important;
+    -fx-background-color: white !important;
+}
+
+/* Campo CVV */
+.cvv-field {
+    -fx-background-color: #fff9e6 !important;
+    -fx-border-color: #f39c12 !important;
+    -fx-border-width: 2 !important;
+    -fx-border-radius: 8 !important;
+    -fx-background-radius: 8 !important;
+    -fx-padding: 10 15 !important;
+    -fx-font-size: 16px !important;
+    -fx-font-family: "Courier New", monospace !important;
+    -fx-text-fill: #2c3e50 !important;
+    -fx-font-weight: bold !important;
+    -fx-alignment: center !important;
+}
+
+.cvv-field:focused {
+    -fx-border-color: #f39c12 !important;
+    -fx-background-color: white !important;
+}
+
+/* ComboBox personalizado */
+.payment-combo {
+    -fx-background-color: #f8f9fa !important;
+    -fx-border-color: #d1d8e0 !important;
+    -fx-border-width: 2 !important;
+    -fx-border-radius: 8 !important;
+    -fx-background-radius: 8 !important;
+}
+
+.payment-combo:focused {
+    -fx-border-color: #667eea !important;
+    -fx-background-color: white !important;
+}
+
+/* Campos pequeños (mes, año) */
+.small-field {
+    -fx-background-color: #f8f9fa !important;
+    -fx-border-color: #d1d8e0 !important;
+    -fx-border-width: 2 !important;
+    -fx-border-radius: 8 !important;
+    -fx-background-radius: 8 !important;
+    -fx-padding: 10 !important;
+    -fx-font-size: 14px !important;
+    -fx-font-family: "Courier New", monospace !important;
+    -fx-text-fill: #2c3e50 !important;
+    -fx-font-weight: bold !important;
+    -fx-alignment: center !important;
+}
+
+.small-field:focused {
+    -fx-border-color: #667eea !important;
+    -fx-background-color: white !important;
+}
+
+/* Caja de seguridad */
+.security-box {
+    -fx-background-color: #d4edda !important;
+    -fx-border-color: #28a745 !important;
+    -fx-border-width: 2 !important;
+    -fx-border-radius: 8 !important;
+    -fx-background-radius: 8 !important;
+    -fx-padding: 15 !important;
+}
+
+.security-icon {
+    -fx-font-size: 22px !important;
+}
+
+.security-title {
+    -fx-font-size: 13px !important;
+    -fx-font-weight: bold !important;
+    -fx-text-fill: #155724 !important;
+}
+
+.security-text {
+    -fx-font-size: 11px !important;
+    -fx-fill: #155724 !important;
+}
+
+/* Indicador de procesamiento */
+.processing-box {
+    -fx-background-color: #cce5ff !important;
+    -fx-border-color: #2196f3 !important;
+    -fx-border-width: 2 !important;
+    -fx-border-radius: 8 !important;
+    -fx-background-radius: 8 !important;
+    -fx-padding: 15 !important;
+}
+
+.processing-text {
+    -fx-font-size: 14px !important;
+    -fx-font-weight: bold !important;
+    -fx-text-fill: #0c5460 !important;
+}
+
+.progress-indicator {
+    -fx-progress-color: #2196f3 !important;
+}
+
+/* Información adicional */
+.info-hint {
+    -fx-font-size: 11px !important;
+    -fx-text-fill: #7f8c8d !important;
+}
+
+/* Separadores */
+.payment-separator .line {
+    -fx-border-color: #e1e8ed !important;
+    -fx-border-width: 1 0 0 0 !important;
+}
+
+/* Botones de acción */
+.btn-process-payment {
+    -fx-background-color: #764ba2 !important;
+    -fx-text-fill: white !important;
+    -fx-font-size: 14px !important;
+    -fx-font-weight: bold !important;
+    -fx-background-radius: 8 !important;
+    -fx-cursor: hand !important;
+}
+
+.btn-process-payment:hover {
+    -fx-background-color: #5a3d7f !important;
+}
+
+.btn-process-payment:pressed {
+    -fx-background-color: #4d3368 !important;
+}
+
+.btn-cancel-payment {
+    -fx-background-color: #95a5a6 !important;
+    -fx-text-fill: white !important;
+    -fx-font-size: 14px !important;
+    -fx-font-weight: bold !important;
+    -fx-background-radius: 8 !important;
+    -fx-cursor: hand !important;
+}
+
+.btn-cancel-payment:hover {
+    -fx-background-color: #7f8c8d !important;
+}
+
+.btn-cancel-payment:pressed {
+    -fx-background-color: #646d6e !important;
+}
+
+/* Nota de campos requeridos */
+.required-note {
+    -fx-background-color: #fff3cd !important;
+    -fx-border-color: #ffc107 !important;
+    -fx-border-width: 1 !important;
+    -fx-border-radius: 6 !important;
+    -fx-background-radius: 6 !important;
+    -fx-padding: 10 !important;
+}
+
+.required-note-text {
+    -fx-font-size: 12px !important;
+    -fx-text-fill: #856404 !important;
+    -fx-font-weight: bold !important;
+}

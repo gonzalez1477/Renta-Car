@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="650" prefWidth="520" maxHeight="750" maxWidth="600" spacing="8.0" style="-fx-padding: 20; -fx-background-color: white;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistema_rentacar.Controllers.Cliente.DialogoFinalizarAlquilerController">
+
+    <!-- Título dinámico -->
+    <Label fx:id="lblTitulo" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="Finalizar Alquiler" wrapText="true" />
+
+    <Separator />
+
+    <!-- ScrollPane para contenido desplazable -->
+    <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" style="-fx-background-color: transparent; -fx-background: white;" VBox.vgrow="ALWAYS">
+        <VBox spacing="10">
+
+            <!-- Información del Alquiler -->
+            <VBox spacing="6.0" style="-fx-background-color: #f8f9fa; -fx-padding: 12; -fx-background-radius: 5;">
+                <Label style="-fx-font-weight: bold; -fx-font-size: 13px;" text="Información del Alquiler:" />
+
+                <GridPane hgap="8" vgap="6">
+                    <Label style="-fx-font-weight: bold; -fx-font-size: 11px;" text="Vehículo:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                    <Label fx:id="lblVehiculo" style="-fx-font-size: 11px;" text="-" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                    <Label style="-fx-font-weight: bold; -fx-font-size: 11px;" text="Cliente:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <Label fx:id="lblCliente" style="-fx-font-size: 11px;" text="-" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                    <Label style="-fx-font-weight: bold; -fx-font-size: 11px;" text="Fecha Inicio:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                    <Label fx:id="lblFechaInicio" style="-fx-font-size: 11px;" text="-" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                    <Label style="-fx-font-weight: bold; -fx-font-size: 11px;" text="Fecha Límite:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                    <Label fx:id="lblFechaLimite" style="-fx-font-size: 11px;" text="-" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                    <Label style="-fx-font-weight: bold; -fx-font-size: 11px;" text="Devolución:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                    <Label fx:id="lblFechaDevolucion" style="-fx-text-fill: #3498db; -fx-font-weight: bold; -fx-font-size: 11px;" text="HOY" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="35" />
+                        <ColumnConstraints percentWidth="65" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                    </rowConstraints>
+                </GridPane>
+            </VBox>
+
+            <!-- Alerta de Retraso (visible solo si hay retraso) -->
+            <VBox fx:id="boxAlertaRetraso" managed="false" spacing="10" style="-fx-background-color: #ffebee; -fx-padding: 12; -fx-background-radius: 5; -fx-border-color: #ef5350; -fx-border-width: 2; -fx-border-radius: 5;" visible="false">
+                <Label style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #c62828;" text="RETRASO DETECTADO" />
+
+                <GridPane hgap="8" vgap="6">
+                    <Label style="-fx-font-weight: bold; -fx-font-size: 11px;" text="Días de retraso:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                    <Label fx:id="lblDiasRetraso" style="-fx-text-fill: #c62828; -fx-font-weight: bold; -fx-font-size: 11px;" text="0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                    <Label style="-fx-font-weight: bold; -fx-font-size: 11px;" text="Tarifa diaria:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <Label fx:id="lblTarifaDiaria" style="-fx-font-size: 11px;" text="\$0.00" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                    <Label style="-fx-font-weight: bold; -fx-font-size: 11px;" text="Recargo/día:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                    <Label fx:id="lblRecargoDiario" style="-fx-text-fill: #e74c3c; -fx-font-size: 11px;" text="\$0.00" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="40" />
+                        <ColumnConstraints percentWidth="60" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                    </rowConstraints>
+                </GridPane>
+
+                <!-- Política de Recargos -->
+                <Separator style="-fx-background-color: #ef5350; -fx-padding: 2 0;" />
+
+                <VBox spacing="3" style="-fx-padding: 3 0 0 0;">
+                    <Label style="-fx-font-weight: bold; -fx-font-size: 11px; -fx-text-fill: #c62828;" text="📋 Política de Recargos:" />
+                    <Label style="-fx-font-size: 10px; -fx-text-fill: #5a5a5a;" text="• 1-3 días: +50% sobre tarifa diaria" wrapText="true" />
+                    <Label style="-fx-font-size: 10px; -fx-text-fill: #5a5a5a;" text="• 4-7 días: +100% sobre tarifa diaria" wrapText="true" />
+                    <Label style="-fx-font-size: 10px; -fx-text-fill: #5a5a5a;" text="• 8+ días: +150% sobre tarifa diaria" wrapText="true" />
+                </VBox>
+            </VBox>
+
+            <!-- Mensaje de Permisos (visible solo para clientes con retraso) -->
+            <VBox fx:id="vboxMensajePermisos" managed="false" visible="false" spacing="6" style="-fx-background-color: #fff3e0; -fx-padding: 12; -fx-background-radius: 5; -fx-border-color: #ff9800; -fx-border-width: 2; -fx-border-radius: 5;">
+                <Label style="-fx-font-weight: bold; -fx-font-size: 12px; -fx-text-fill: #e65100;" text="🔒 Permiso Requerido" />
+                <Label fx:id="lblMensajePermisos" wrapText="true" style="-fx-font-size: 11px; -fx-text-fill: #5d4037;" text="Los alquileres con retraso solo pueden ser finalizados por un empleado o administrador. Por favor, acérquese a nuestras oficinas para procesar la devolución y realizar el pago de la penalización." />
+            </VBox>
+
+            <!-- Resumen Financiero -->
+            <VBox spacing="8" style="-fx-background-color: #e8f5e9; -fx-padding: 12; -fx-background-radius: 5;">
+                <Label style="-fx-font-weight: bold; -fx-font-size: 13px;" text="💰 Resumen Financiero" />
+
+                <GridPane hgap="8" vgap="6">
+                    <Label style="-fx-font-size: 11px;" text="Costo del alquiler:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                    <Label fx:id="lblCostoAlquiler" style="-fx-font-weight: bold; -fx-font-size: 11px;" text="\$0.00" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                    <Label style="-fx-font-size: 11px;" text="Depósito pagado:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <Label fx:id="lblDeposito" style="-fx-font-size: 11px;" text="\$0.00" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                    <Label fx:id="lblTextoPenalizacion" managed="false" style="-fx-text-fill: #c62828; -fx-font-weight: bold; -fx-font-size: 11px;" text="Penalización:" visible="false" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                    <Label fx:id="lblPenalizacion" managed="false" style="-fx-text-fill: #c62828; -fx-font-weight: bold; -fx-font-size: 14px;" text="\$0.00" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                    <Separator style="-fx-padding: 3 0;" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+
+                    <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Total a pagar:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                    <Label fx:id="lblTotalPagar" style="-fx-font-weight: bold; -fx-font-size: 16px; -fx-text-fill: #27ae60;" text="\$0.00" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="55" />
+                        <ColumnConstraints halignment="RIGHT" percentWidth="45" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                    </rowConstraints>
+                </GridPane>
+            </VBox>
+
+            <!-- Observaciones -->
+            <VBox spacing="6">
+                <Label style="-fx-font-weight: bold; -fx-font-size: 12px;" text="Observaciones sobre la devolución:" />
+                <TextArea fx:id="txtObservaciones" prefRowCount="2" maxHeight="80" promptText="Estado del vehículo, kilometraje, daños, etc. (Opcional)" style="-fx-font-size: 11px;" />
+            </VBox>
+
+            <!-- Nota de retraso -->
+            <Label fx:id="lblNotaRetraso" managed="false" style="-fx-text-fill: #e74c3c; -fx-font-size: 10px; -fx-font-style: italic; -fx-font-weight: bold;" text="El cliente debe pagar la penalización antes de finalizar." visible="false" wrapText="true" />
+
+        </VBox>
+    </ScrollPane>
+
+    <Separator />
+
+    <!-- Botones de Acción -->
+    <HBox alignment="CENTER" spacing="12" style="-fx-padding: 5 0 0 0;">
+        <Button fx:id="btnConfirmar" onAction="#handleConfirmar" prefHeight="40" prefWidth="200" style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 13px; -fx-cursor: hand; -fx-background-radius: 5;" text="✓ Confirmar Devolución" />
+
+        <Button fx:id="btnCancelar" onAction="#handleCancelar" prefHeight="40" prefWidth="120" style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 13px; -fx-cursor: hand; -fx-background-radius: 5;" text="Cancelar" />
+    </HBox>
+
+</VBox>

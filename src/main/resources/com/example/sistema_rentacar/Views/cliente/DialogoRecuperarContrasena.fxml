@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.sistema_rentacar.Controllers.Cliente.DialogoRecuperarContrasenaController"
+      spacing="0"
+      prefWidth="500"
+      prefHeight="600"
+      style="-fx-background-color: #f8f9fa;">
+
+    <!-- HEADER -->
+    <VBox alignment="CENTER" spacing="10"
+          style="-fx-background-color: linear-gradient(to bottom right, #667eea, #764ba2);
+                 -fx-padding: 28 28 28 28;">
+
+        <StackPane style="-fx-background-color: rgba(255,255,255,0.2);
+                          -fx-background-radius: 50; -fx-padding: 14;">
+            <Label text="🔐" style="-fx-font-size: 32px;"/>
+        </StackPane>
+
+        <Label text="Recuperar Contraseña"
+               style="-fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+        <Label text="Te enviaremos un código de verificación por correo"
+               wrapText="true"
+               alignment="CENTER"
+               style="-fx-text-fill: rgba(255,255,255,0.9); -fx-font-size: 11px;"/>
+    </VBox>
+
+    <!-- CONTENIDO -->
+    <VBox spacing="16"
+          style="-fx-padding: 22 28 22 28; -fx-background-color: white;">
+
+        <!-- CARD DE INSTRUCCIONES -->
+        <VBox spacing="10"
+              style="-fx-background-color: #f0f4ff;
+                     -fx-padding: 14;
+                     -fx-background-radius: 8;
+                     -fx-border-color: #d1ddff;
+                     -fx-border-radius: 8;
+                     -fx-border-width: 1;">
+
+            <HBox spacing="6" alignment="CENTER_LEFT">
+                <Label text="ℹ" style="-fx-font-size: 16px;"/>
+                <Label text="Cómo funciona"
+                       style="-fx-font-weight: bold; -fx-text-fill: #4c6ef5; -fx-font-size: 13px;"/>
+            </HBox>
+
+            <VBox spacing="6">
+                <HBox spacing="8" alignment="CENTER_LEFT">
+                    <Label text="1"
+                           style="-fx-background-color: #667eea; -fx-text-fill: white;
+                                  -fx-padding: 2 8; -fx-background-radius: 12;
+                                  -fx-font-size: 10px; -fx-font-weight: bold;"/>
+                    <Label text="Ingresa tu correo electrónico registrado"
+                           wrapText="true" style="-fx-text-fill: #495057; -fx-font-size: 11px;"/>
+                </HBox>
+
+                <HBox spacing="8" alignment="CENTER_LEFT">
+                    <Label text="2"
+                           style="-fx-background-color: #667eea; -fx-text-fill: white;
+                                  -fx-padding: 2 8; -fx-background-radius: 12;
+                                  -fx-font-size: 10px; -fx-font-weight: bold;"/>
+                    <Label text="Recibirás un código de 6 dígitos (válido 15 min)"
+                           wrapText="true" style="-fx-text-fill: #495057; -fx-font-size: 11px;"/>
+                </HBox>
+
+                <HBox spacing="8" alignment="CENTER_LEFT">
+                    <Label text="3"
+                           style="-fx-background-color: #667eea; -fx-text-fill: white;
+                                  -fx-padding: 2 8; -fx-background-radius: 12;
+                                  -fx-font-size: 10px; -fx-font-weight: bold;"/>
+                    <Label text="Usa el código para crear una nueva contraseña"
+                           wrapText="true" style="-fx-text-fill: #495057; -fx-font-size: 11px;"/>
+                </HBox>
+            </VBox>
+        </VBox>
+
+        <!-- FORMULARIO EMAIL -->
+        <VBox spacing="8">
+            <Label text="Correo Electrónico"
+                   style="-fx-font-weight: 600; -fx-text-fill: #212529; -fx-font-size: 12px;"/>
+
+            <VBox spacing="4">
+                <TextField fx:id="txtEmail"
+                           promptText="tucorreo@ejemplo.com"
+                           style="-fx-font-size: 13px;
+                                  -fx-pref-height: 40px;
+                                  -fx-background-color: white;
+                                  -fx-border-color: #dee2e6;
+                                  -fx-border-radius: 7;
+                                  -fx-background-radius: 7;
+                                  -fx-padding: 0 12;
+                                  -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 3, 0, 0, 1);"/>
+
+                <Label fx:id="lblMensajeEmail"
+                       textFill="#dc3545"
+                       wrapText="true"
+                       visible="false"
+                       style="-fx-font-size: 11px; -fx-padding: 0 4;"/>
+            </VBox>
+        </VBox>
+
+        <!-- INDICADOR CARGA -->
+        <HBox fx:id="hboxEnviando"
+              alignment="CENTER"
+              spacing="10"
+              visible="false"
+              managed="false"
+              style="-fx-background-color: #fff8e1;
+                     -fx-padding: 12;
+                     -fx-background-radius: 8;
+                     -fx-border-color: #ffe082;
+                     -fx-border-radius: 8;
+                     -fx-border-width: 1;">
+            <ProgressIndicator prefWidth="20" prefHeight="20"
+                               style="-fx-progress-color: #f57c00;"/>
+            <Label text="Enviando código..."
+                   style="-fx-text-fill: #e65100; -fx-font-size: 12px; -fx-font-weight: 500;"/>
+        </HBox>
+
+        <Region VBox.vgrow="ALWAYS"/>
+
+        <!-- BOTONES -->
+        <HBox spacing="10" alignment="CENTER">
+            <Button fx:id="btnCancelar"
+                    text="Cancelar"
+                    onAction="#handleCancelar"
+                    prefWidth="130" prefHeight="40"
+                    style="-fx-background-color: white;
+                           -fx-text-fill: #6c757d;
+                           -fx-font-size: 13px;
+                           -fx-font-weight: 600;
+                           -fx-background-radius: 7;
+                           -fx-border-color: #dee2e6;
+                           -fx-border-radius: 7;
+                           -fx-border-width: 2;
+                           -fx-cursor: hand;"/>
+
+            <Button fx:id="btnEnviarCodigo"
+                    text="Enviar Código"
+                    onAction="#handleEnviarCodigo"
+                    defaultButton="true"
+                    prefWidth="160" prefHeight="40"
+                    style="-fx-background-color: linear-gradient(to right, #667eea, #764ba2);
+                           -fx-text-fill: white;
+                           -fx-font-size: 13px;
+                           -fx-font-weight: bold;
+                           -fx-background-radius: 7;
+                           -fx-cursor: hand;"/>
+        </HBox>
+    </VBox>
+
+    <!-- FOOTER -->
+    <HBox alignment="CENTER" spacing="6"
+          style="-fx-padding: 10; -fx-background-color: #f8f9fa;">
+        <Label text="💡" style="-fx-font-size: 12px;"/>
+        <Label text="¿No recibes el correo? Revisa tu carpeta de spam"
+               style="-fx-text-fill: #6c757d; -fx-font-size: 10px; -fx-font-style: italic;"/>
+    </HBox>
+
+</VBox>

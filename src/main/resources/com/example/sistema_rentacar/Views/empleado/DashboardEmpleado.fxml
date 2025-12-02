@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.sistema_rentacar.Controllers.Empleado.DashboardEmpleadoController"
+      stylesheets="@../../css/estilosTablas.css">
+
+    <!-- SIDEBAR -->
+    <VBox prefWidth="250" styleClass="sidebar-container" style="-fx-background-color: linear-gradient(to bottom, #2c3e50, #34495e);">
+        <padding>
+            <Insets top="20" bottom="20" left="15" right="15"/>
+        </padding>
+
+        <!-- Logo/Título -->
+        <VBox alignment="CENTER" spacing="8" styleClass="sidebar-logo">
+            <Label style="-fx-text-fill: white; -fx-font-size: 22px; -fx-font-weight: bold;" text="VSB"/>
+            <Label style="-fx-text-fill: #3498db; -fx-font-size: 16px; -fx-font-weight: bold;" text="Renta Car"/>
+            <Label style="-fx-text-fill: #95a5a6; -fx-font-size: 11px; -fx-font-style: italic;" text="Panel de Empleado"/>
+        </VBox>
+
+        <Separator styleClass="sidebar-separator" style="-fx-background-color: rgba(255,255,255,0.2);">
+            <VBox.margin>
+                <Insets bottom="15"/>
+            </VBox.margin>
+        </Separator>
+
+        <!-- Información del Usuario -->
+        <VBox spacing="8" styleClass="sidebar-user-info">
+            <Label fx:id="lblEmpleado" style="-fx-text-fill: white; -fx-font-size: 13px; -fx-font-weight: bold;" text="Usuario"/>
+            <Label fx:id="lblCargo" style="-fx-text-fill: #bdc3c7; -fx-font-size: 11px;" text="Cargo"/>
+        </VBox>
+
+        <!-- Espaciador pequeño -->
+        <Region VBox.vgrow="NEVER" styleClass="sidebar-spacer">
+            <VBox.margin>
+                <Insets top="15" bottom="8"/>
+            </VBox.margin>
+        </Region>
+
+        <!-- Menú de Navegación Principal -->
+        <VBox spacing="8" styleClass="sidebar-nav-section">
+            <Label styleClass="sidebar-section-label" text="NAVEGACIÓN"/>
+
+            <Button fx:id="btnDashboard"
+                    onAction="#handleNavigateToDashboard"
+                    maxWidth="Infinity"
+                    styleClass="btn-nav, btn-nav-active"
+                    text="  📊  Dashboard"/>
+
+            <Button fx:id="btnVehiculos"
+                    onAction="#handleNavigateToVehiculos"
+                    maxWidth="Infinity"
+                    styleClass="btn-nav"
+                    text="  🚗  Vehículos"/>
+
+            <Button fx:id="btnClientes"
+                    onAction="#handleNavigateToClientes"
+                    maxWidth="Infinity"
+                    styleClass="btn-nav"
+                    text="  👥  Clientes"/>
+
+            <Button fx:id="btnAlquileres"
+                    onAction="#handleNavigateToAlquileres"
+                    maxWidth="Infinity"
+                    styleClass="btn-nav"
+                    text="  📋  Alquileres Activos"/>
+
+            <Button fx:id="btnCategorias"
+                    onAction="#handleNavigateToCategorias"
+                    maxWidth="Infinity"
+                    styleClass="btn-nav"
+                    text="  📂  Categorías"/>
+        </VBox>
+
+        <!-- Sección de Administración -->
+        <VBox spacing="8" styleClass="sidebar-nav-section" fx:id="seccionAdmin" visible="false" managed="false">
+            <VBox.margin>
+                <Insets top="8"/>
+            </VBox.margin>
+
+            <Separator fx:id="separadorAdmin" styleClass="sidebar-separator" style="-fx-background-color: rgba(255,255,255,0.2);"/>
+
+            <Label fx:id="lblAdminSection" styleClass="sidebar-section-label" text="ADMINISTRACIÓN"/>
+
+            <Button fx:id="btnEmpleados"
+                    onAction="#handleNavigateToEmpleados"
+                    maxWidth="Infinity"
+                    styleClass="btn-nav"
+                    text="  👔  Empleados"/>
+        </VBox>
+
+        <Region VBox.vgrow="ALWAYS" styleClass="sidebar-spacer"/>
+
+        <Button onAction="#handleCerrarSesion"
+                maxWidth="Infinity"
+                styleClass="btn-logout"
+                text="🚪 Cerrar Sesión">
+            <VBox.margin>
+                <Insets top="15"/>
+            </VBox.margin>
+        </Button>
+
+    </VBox>
+
+    <!-- Área de Contenido Principal -->
+    <BorderPane HBox.hgrow="ALWAYS" style="-fx-background-color: #ecf0f1;">
+
+        <!-- Header del contenido -->
+        <top>
+            <HBox alignment="CENTER_LEFT" spacing="15" style="-fx-background-color: white; -fx-padding: 15 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);">
+                <Label fx:id="lblTituloSeccion" style="-fx-text-fill: #2c3e50; -fx-font-size: 22px; -fx-font-weight: bold;" text="Dashboard"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label fx:id="lblSubtituloSeccion" style="-fx-text-fill: #7f8c8d; -fx-font-size: 13px;" text="Resumen General"/>
+            </HBox>
+        </top>
+
+        <!-- Contenedor de vistas dinámicas -->
+        <center>
+            <StackPane fx:id="contenedorVistas" style="-fx-background-color: transparent;">
+
+                <!-- Vista: Dashboard - CON SCROLL PARA MANTENER TARJETAS GRANDES -->
+                <ScrollPane fx:id="vistaDashboard" fitToWidth="true" fitToHeight="true"
+                            style="-fx-background-color: transparent; -fx-background: #ecf0f1;"
+                            hbarPolicy="AS_NEEDED" vbarPolicy="AS_NEEDED">
+                    <VBox spacing="25" style="-fx-padding: 25;">
+
+                        <!-- Tarjetas de Estadísticas - TAMAÑO ORIGINAL -->
+                        <GridPane hgap="20" vgap="20" minWidth="1050">
+
+                            <!-- Total Vehículos -->
+                            <VBox spacing="15" styleClass="dashboard-card, card-blue"
+                                  style="-fx-padding: 20; -fx-min-width: 330; -fx-min-height: 180;"
+                                  GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                <HBox alignment="CENTER_LEFT" spacing="15">
+                                    <Label text="🚗" styleClass="card-icon"/>
+                                    <VBox spacing="8" HBox.hgrow="ALWAYS">
+                                        <Label text="Total Vehículos" styleClass="card-title"/>
+                                        <Label fx:id="lblTotalVehiculos" text="0" styleClass="card-number"/>
+                                    </VBox>
+                                </HBox>
+                                <Region styleClass="card-divider"/>
+                                <HBox alignment="CENTER_LEFT" spacing="10">
+                                    <Region styleClass="card-indicator, indicator-blue"/>
+                                    <Label text="En el sistema" styleClass="card-description"/>
+                                </HBox>
+                            </VBox>
+
+                            <!-- Disponibles -->
+                            <VBox spacing="15" styleClass="dashboard-card, card-green"
+                                  style="-fx-padding: 20; -fx-min-width: 330; -fx-min-height: 180;"
+                                  GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                <HBox alignment="CENTER_LEFT" spacing="15">
+                                    <Label text="✅" styleClass="card-icon"/>
+                                    <VBox spacing="8" HBox.hgrow="ALWAYS">
+                                        <Label text="Disponibles" styleClass="card-title"/>
+                                        <Label fx:id="lblVehiculosDisponibles" text="0" styleClass="card-number"/>
+                                    </VBox>
+                                </HBox>
+                                <Region styleClass="card-divider"/>
+                                <HBox alignment="CENTER_LEFT" spacing="10">
+                                    <Region styleClass="card-indicator, indicator-green"/>
+                                    <Label text="Listos para alquilar" styleClass="card-description"/>
+                                </HBox>
+                            </VBox>
+
+                            <!-- Alquilados -->
+                            <VBox spacing="15" styleClass="dashboard-card, card-red"
+                                  style="-fx-padding: 20; -fx-min-width: 330; -fx-min-height: 180;"
+                                  GridPane.columnIndex="2" GridPane.rowIndex="0">
+                                <HBox alignment="CENTER_LEFT" spacing="15">
+                                    <Label text="🔒" styleClass="card-icon"/>
+                                    <VBox spacing="8" HBox.hgrow="ALWAYS">
+                                        <Label text="Alquilados" styleClass="card-title"/>
+                                        <Label fx:id="lblVehiculosAlquilados" text="0" styleClass="card-number"/>
+                                    </VBox>
+                                </HBox>
+                                <Region styleClass="card-divider"/>
+                                <HBox alignment="CENTER_LEFT" spacing="10">
+                                    <Region styleClass="card-indicator, indicator-red"/>
+                                    <Label text="En uso actualmente" styleClass="card-description"/>
+                                </HBox>
+                            </VBox>
+
+                            <!-- Alquileres Activos -->
+                            <VBox spacing="15" styleClass="dashboard-card, card-orange"
+                                  style="-fx-padding: 20; -fx-min-width: 330; -fx-min-height: 180;"
+                                  GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                <HBox alignment="CENTER_LEFT" spacing="15">
+                                    <Label text="📋" styleClass="card-icon"/>
+                                    <VBox spacing="8" HBox.hgrow="ALWAYS">
+                                        <Label text="Alquileres Activos" styleClass="card-title"/>
+                                        <Label fx:id="lblAlquileresActivos" text="0" styleClass="card-number"/>
+                                    </VBox>
+                                </HBox>
+                                <Region styleClass="card-divider"/>
+                                <HBox alignment="CENTER_LEFT" spacing="10">
+                                    <Region styleClass="card-indicator, indicator-orange"/>
+                                    <Label text="Contratos vigentes" styleClass="card-description"/>
+                                </HBox>
+                            </VBox>
+
+                            <!-- Total Clientes -->
+                            <VBox spacing="15" styleClass="dashboard-card, card-purple"
+                                  style="-fx-padding: 20; -fx-min-width: 330; -fx-min-height: 180;"
+                                  GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                <HBox alignment="CENTER_LEFT" spacing="15">
+                                    <Label text="👥" styleClass="card-icon"/>
+                                    <VBox spacing="8" HBox.hgrow="ALWAYS">
+                                        <Label text="Total Clientes" styleClass="card-title"/>
+                                        <Label fx:id="lblTotalClientes" text="0" styleClass="card-number"/>
+                                    </VBox>
+                                </HBox>
+                                <Region styleClass="card-divider"/>
+                                <HBox alignment="CENTER_LEFT" spacing="10">
+                                    <Region styleClass="card-indicator, indicator-purple"/>
+                                    <Label text="Registrados en el sistema" styleClass="card-description"/>
+                                </HBox>
+                            </VBox>
+
+                            <!-- Ingresos del Mes -->
+                            <VBox spacing="15" styleClass="dashboard-card, card-teal"
+                                  style="-fx-padding: 20; -fx-min-width: 330; -fx-min-height: 180;"
+                                  GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                <HBox alignment="CENTER_LEFT" spacing="15">
+                                    <Label text="💰" styleClass="card-icon"/>
+                                    <VBox spacing="8" HBox.hgrow="ALWAYS">
+                                        <Label text="Ingresos del Mes" styleClass="card-title"/>
+                                        <Label fx:id="lblIngresosMes" text="\$0.00" styleClass="card-number" style="-fx-font-size: 40px;"/>
+                                    </VBox>
+                                </HBox>
+                                <Region styleClass="card-divider"/>
+                                <HBox alignment="CENTER_LEFT" spacing="10">
+                                    <Region styleClass="card-indicator, indicator-teal"/>
+                                    <Label text="Total facturado" styleClass="card-description"/>
+                                </HBox>
+                            </VBox>
+
+                            <columnConstraints>
+                                <ColumnConstraints minWidth="330" prefWidth="330"/>
+                                <ColumnConstraints minWidth="330" prefWidth="330"/>
+                                <ColumnConstraints minWidth="330" prefWidth="330"/>
+                            </columnConstraints>
+                        </GridPane>
+
+                    </VBox>
+                </ScrollPane>
+
+                <!-- Resto de vistas sin cambios... -->
+                <VBox fx:id="vistaVehiculos" spacing="15" style="-fx-padding: 30; -fx-background-color: transparent;" visible="false" managed="false">
+                    <HBox spacing="15" alignment="CENTER_LEFT">
+                        <TextField fx:id="txtBuscarVehiculo" promptText="🔍 Buscar por placa, marca o modelo..."
+                                   prefWidth="400" style="-fx-font-size: 14px; -fx-padding: 10;"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Button fx:id="btnAgregarVehiculo" text="Nuevo Vehículo" onAction="#handleAgregarVehiculo" styleClass="btn-success"/>
+                        <Button fx:id="btnEditarVehiculo" text="Editar" onAction="#handleEditarVehiculo" disable="true" styleClass="btn-primary"/>
+                        <Button fx:id="btnEliminarVehiculo" text="Eliminar" onAction="#handleEliminarVehiculo" disable="true" styleClass="btn-danger"/>
+                    </HBox>
+                    <TableView fx:id="tableVehiculos" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="colVehId" text="ID" prefWidth="50"/>
+                            <TableColumn fx:id="colVehPlaca" text="Placa" prefWidth="100"/>
+                            <TableColumn fx:id="colVehMarca" text="Marca" prefWidth="120"/>
+                            <TableColumn fx:id="colVehModelo" text="Modelo" prefWidth="120"/>
+                            <TableColumn fx:id="colVehAnio" text="Año" prefWidth="70"/>
+                            <TableColumn fx:id="colVehTipo" text="Tipo" prefWidth="100"/>
+                            <TableColumn fx:id="colVehTarifa" text="Tarifa/Día" prefWidth="100"/>
+                            <TableColumn fx:id="colVehEstado" text="Estado" prefWidth="130"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+
+                <VBox fx:id="vistaClientes" spacing="15" style="-fx-padding: 30; -fx-background-color: transparent;" visible="false" managed="false">
+                    <HBox spacing="15" alignment="CENTER_LEFT">
+                        <TextField fx:id="txtBuscarCliente" promptText="🔍 Buscar cliente..." prefWidth="400" style="-fx-font-size: 14px; -fx-padding: 10;"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Button fx:id="btnAgregarCliente" text="Nuevo Cliente" onAction="#handleAgregarCliente" styleClass="btn-success"/>
+                        <Button fx:id="btnVerHistorialCliente" text="Ver Historial" onAction="#handleVerHistorialCliente" disable="true" styleClass="btn-info"/>
+                        <Button text="🔄" onAction="#handleRefrescarClientes" styleClass="btn-info, btn-icon"/>
+                    </HBox>
+                    <TableView fx:id="tableClientes" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="colCliId" text="ID" prefWidth="50"/>
+                            <TableColumn fx:id="colCliNombre" text="Nombre Completo" prefWidth="200"/>
+                            <TableColumn fx:id="colCliEmail" text="Email" prefWidth="200"/>
+                            <TableColumn fx:id="colCliTelefono" text="Teléfono" prefWidth="120"/>
+                            <TableColumn fx:id="colCliDui" text="DUI" prefWidth="120"/>
+                            <TableColumn fx:id="colCliLicencia" text="Licencia" prefWidth="120"/>
+                            <TableColumn fx:id="colCliActivo" text="Estado" prefWidth="80"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+
+                <VBox fx:id="vistaAlquileres" spacing="15" style="-fx-padding: 30; -fx-background-color: transparent;" visible="false" managed="false">
+                    <HBox spacing="15" alignment="CENTER_LEFT">
+                        <TextField fx:id="txtBuscarAlquiler"
+                                   promptText="🔍 Buscar por nombre de cliente..."
+                                   prefWidth="400"
+                                   style="-fx-font-size: 14px; -fx-padding: 10;"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Button fx:id="btnFinalizarAlquiler" text="Finalizar Alquiler" onAction="#handleFinalizarAlquiler" disable="true" styleClass="btn-success"/>
+                        <Button fx:id="btnRefrescarAlquileres" text="🔄" onAction="#handleRefrescarAlquileres" styleClass="btn-info, btn-icon"/>
+                    </HBox>
+                    <TableView fx:id="tableAlquileres" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="colAlqId" text="ID" prefWidth="50"/>
+                            <TableColumn fx:id="colAlqCliente" text="Cliente" prefWidth="160"/>
+                            <TableColumn fx:id="colAlqVehiculo" text="Vehículo" prefWidth="160"/>
+                            <TableColumn fx:id="colAlqPlaca" text="Placa" prefWidth="90"/>
+                            <TableColumn fx:id="colAlqFechaInicio" text="Fecha Inicio" prefWidth="130"/>
+                            <TableColumn fx:id="colAlqFechaFin" text="Fecha Fin" prefWidth="130"/>
+                            <TableColumn fx:id="colAlqDias" text="Días" prefWidth="60"/>
+                            <TableColumn fx:id="colAlqCosto" text="Costo Total" prefWidth="100"/>
+                            <TableColumn fx:id="colAlqEstado" text="Estado" prefWidth="200"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+
+                <VBox fx:id="vistaEmpleados" spacing="15" style="-fx-padding: 30; -fx-background-color: transparent;" visible="false" managed="false">
+                    <HBox spacing="15" alignment="CENTER_LEFT">
+                        <TextField fx:id="txtBuscarEmpleado" promptText="🔍 Buscar empleado..." prefWidth="450" style="-fx-font-size: 14px; -fx-padding: 10;"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Button fx:id="btnAgregarEmpleado" text="Nuevo" onAction="#handleAgregarEmpleado" styleClass="btn-success"/>
+                        <Button fx:id="btnEditarEmpleado" text="Editar" onAction="#handleEditarEmpleado" disable="true" styleClass="btn-primary"/>
+                        <Button fx:id="btnDesactivarEmpleado" text="Desactivar" onAction="#handleDesactivarEmpleado" disable="true" styleClass="btn-warning"/>
+                        <Button fx:id="btnEliminarEmpleado" text="Eliminar" onAction="#handleEliminarEmpleado" disable="true" styleClass="btn-danger"/>
+                        <Button text="🔄" onAction="#handleRefrescarEmpleados" styleClass="btn-info, btn-icon"/>
+                    </HBox>
+                    <TableView fx:id="tableEmpleados" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="colEmpId" text="ID" prefWidth="50"/>
+                            <TableColumn fx:id="colEmpNombre" text="Nombre Completo" prefWidth="200"/>
+                            <TableColumn fx:id="colEmpEmail" text="Email" prefWidth="200"/>
+                            <TableColumn fx:id="colEmpTelefono" text="Teléfono" prefWidth="120"/>
+                            <TableColumn fx:id="colEmpUsuario" text="Usuario" prefWidth="120"/>
+                            <TableColumn fx:id="colEmpCargo" text="Cargo" prefWidth="120"/>
+                            <TableColumn fx:id="colEmpFechaContratacion" text="F. Contratación" prefWidth="120"/>
+                            <TableColumn fx:id="colEmpActivo" text="Estado" prefWidth="100"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+
+                <VBox fx:id="vistaCategorias" spacing="15" style="-fx-padding: 30; -fx-background-color: transparent;" visible="false" managed="false">
+                    <HBox spacing="15" alignment="CENTER_LEFT">
+                        <TextField fx:id="txtBuscarCategoria"
+                                   promptText="🔍 Buscar categoría..."
+                                   prefWidth="400"
+                                   style="-fx-font-size: 14px; -fx-padding: 10;"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Button fx:id="btnAgregarTipo" text="Nueva Categoría" onAction="#handleAgregarTipo" styleClass="btn-success"/>
+                        <Button fx:id="btnEditarTipo" text="Editar" onAction="#handleEditarTipo" disable="true" styleClass="btn-primary"/>
+                        <Button fx:id="btnEliminarTipo" text="Eliminar" onAction="#handleEliminarTipo" disable="true" styleClass="btn-danger"/>
+                    </HBox>
+                    <TableView fx:id="tableTipos" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="colTipoId" text="ID" prefWidth="50"/>
+                            <TableColumn fx:id="colTipoNombre" text="Nombre" prefWidth="200"/>
+                            <TableColumn fx:id="colTipoTarifa" text="Tarifa/Día" prefWidth="120"/>
+                            <TableColumn fx:id="colTipoDescripcion" text="Descripción" prefWidth="400"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+
+            </StackPane>
+        </center>
+
+    </BorderPane>
+
+</HBox>

@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<HBox xmlns="http://javafx.com/javafx/25"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.sistema_rentacar.Controllers.Cliente.CatalogoClienteController">
+
+    <!-- Sidebar - REDUCIDO -->
+    <VBox prefWidth="230"
+          style="-fx-background-color: linear-gradient(to bottom, #2c3e50, #34495e);">
+
+        <!-- Alerta de Alquiler Activo con Cronómetro -->
+        <VBox fx:id="vboxAlquilerActivo" spacing="8"
+              style="-fx-background-color: linear-gradient(to right, #f39c12, #e67e22);
+                     -fx-background-radius: 8; -fx-padding: 12;"
+              visible="false" managed="false">
+
+            <VBox.margin>
+                <Insets bottom="4"/>
+            </VBox.margin>
+
+            <!-- Título -->
+            <Label fx:id="lblAlquilerActivo"
+                   style="-fx-text-fill: white; -fx-font-size: 12px; -fx-font-weight: bold;"
+                   text="Tienes un alquiler activo"
+                   wrapText="true"/>
+
+            <!-- Cronómetro -->
+            <HBox alignment="CENTER_LEFT" spacing="6"
+                  style="-fx-background-color: rgba(0,0,0,0.2); -fx-padding: 8; -fx-background-radius: 5;">
+                <Label text="⏱" style="-fx-font-size: 18px;"/>
+                <VBox spacing="2">
+                    <Label text="Tiempo restante:"
+                           style="-fx-text-fill: white; -fx-font-size: 10px; -fx-font-weight: bold;"/>
+                    <Label fx:id="lblTiempoRestante"
+                           text="Calculando..."
+                           style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px;"/>
+                </VBox>
+            </HBox>
+
+            <!-- Información adicional -->
+            <HBox alignment="CENTER_LEFT" spacing="4">
+                <Label text="-" style="-fx-font-size: 12px;"/>
+                <Label fx:id="lblFechaFin"
+                       text="Fecha fin: --/--/----"
+                       style="-fx-text-fill: white; -fx-font-size: 10px;"/>
+            </HBox>
+
+            <Button fx:id="btnAlquilerActivo"
+                    onAction="#handleVerAlquilerActivo"
+                    maxWidth="Infinity"
+                    style="-fx-background-color: white; -fx-text-fill: #f39c12;
+                           -fx-font-weight: bold; -fx-padding: 6; -fx-cursor: hand;
+                           -fx-background-radius: 5; -fx-font-size: 11px;"
+                    text="Ver Detalles Completos" />
+        </VBox>
+
+        <padding>
+            <Insets top="20" bottom="20" left="15" right="15"/>
+        </padding>
+
+        <!-- Logo/Título -->
+        <VBox alignment="CENTER" spacing="8" style="-fx-padding: 0 0 20 0;">
+            <Label style="-fx-text-fill: #3498db; -fx-font-size: 16px; -fx-font-weight: bold;" text="VSB Renta Car" />
+        </VBox>
+
+        <Separator style="-fx-background-color: rgba(255,255,255,0.2);">
+            <VBox.margin>
+                <Insets bottom="15"/>
+            </VBox.margin>
+        </Separator>
+
+        <!-- Información del Usuario -->
+        <VBox spacing="8"
+              style="-fx-background-color: rgba(255,255,255,0.1);
+                     -fx-background-radius: 8; -fx-padding: 12;">
+            <Label fx:id="lblBienvenida"
+                   style="-fx-text-fill: white; -fx-font-size: 13px; -fx-font-weight: bold;"
+                   text="Bienvenido" />
+            <Label style="-fx-text-fill: #bdc3c7; -fx-font-size: 11px;" text="Cliente" />
+        </VBox>
+
+        <Region VBox.vgrow="SOMETIMES">
+            <VBox.margin>
+                <Insets top="15" bottom="15"/>
+            </VBox.margin>
+        </Region>
+
+        <!-- Menú de Navegación -->
+        <VBox spacing="8">
+
+            <!-- Botón Iniciar Sesión -->
+            <Button fx:id="btnIniciarSesion"
+                    onAction="#handleIniciarSesion"
+                    onMouseEntered="#handleMouseEntered"
+                    onMouseExited="#handleMouseExited"
+                    maxWidth="Infinity"
+                    style="-fx-background-color: #3498db; -fx-text-fill: white;
+                           -fx-font-weight: bold; -fx-padding: 10; -fx-cursor: hand;
+                           -fx-background-radius: 7; -fx-font-size: 12px;"
+                    text="🔐 Iniciar Sesión"
+                    visible="false"
+                    managed="false"/>
+
+            <!-- Separador -->
+            <Separator fx:id="separadorSesion"
+                       style="-fx-background-color: rgba(255,255,255,0.2);"
+                       visible="false"
+                       managed="false">
+                <VBox.margin>
+                    <Insets top="4" bottom="4"/>
+                </VBox.margin>
+            </Separator>
+
+            <!-- Botones de Usuario Autenticado -->
+            <Button fx:id="btnMiPerfil"
+                    onAction="#handleMiPerfil"
+                    onMouseEntered="#handleMouseEntered"
+                    onMouseExited="#handleMouseExited"
+                    maxWidth="Infinity"
+                    style="-fx-background-color: rgba(255,255,255,0.1);
+                           -fx-text-fill: white; -fx-font-weight: bold;
+                           -fx-padding: 10; -fx-cursor: hand; -fx-background-radius: 7;
+                           -fx-alignment: CENTER-LEFT; -fx-font-size: 12px;"
+                    text="  👤  Mi Perfil"
+                    managed="false"/>
+
+            <Button fx:id="btnHistorial"
+                    onAction="#handleVerHistorial"
+                    onMouseEntered="#handleMouseEntered"
+                    onMouseExited="#handleMouseExited"
+                    maxWidth="Infinity"
+                    style="-fx-background-color: rgba(255,255,255,0.1);
+                           -fx-text-fill: white; -fx-font-weight: bold;
+                           -fx-padding: 10; -fx-cursor: hand; -fx-background-radius: 7;
+                           -fx-alignment: CENTER-LEFT; -fx-font-size: 12px;"
+                    text="  📋  Mis Alquileres"
+                    managed="false"/>
+
+            <!-- Botón refrescar -->
+            <Button onAction="#handleRefrescar"
+                    onMouseEntered="#handleMouseEntered"
+                    onMouseExited="#handleMouseExited"
+                    maxWidth="Infinity"
+                    style="-fx-background-color: #27ae60; -fx-text-fill: white;
+                           -fx-font-weight: bold; -fx-padding: 10; -fx-cursor: hand;
+                           -fx-background-radius: 7; -fx-alignment: CENTER-LEFT;
+                           -fx-font-size: 12px;"
+                    text="  🔄  Refrescar Catálogo" />
+        </VBox>
+
+        <Region VBox.vgrow="ALWAYS"/>
+
+        <!-- Botón Cerrar Sesión -->
+        <Button onAction="#handleCerrarSesion"
+                onMouseEntered="#handleMouseEntered"
+                onMouseExited="#handleMouseExited"
+                maxWidth="Infinity"
+                style="-fx-background-color: #e74c3c; -fx-text-fill: white;
+                       -fx-font-weight: bold; -fx-padding: 10; -fx-cursor: hand;
+                       -fx-background-radius: 7; -fx-font-size: 12px;"
+                text="🚪 Cerrar Sesión" />
+
+    </VBox>
+
+    <!-- Área de Contenido Principal -->
+    <BorderPane HBox.hgrow="ALWAYS" style="-fx-background-color: #ecf0f1;">
+
+        <top>
+            <HBox alignment="CENTER_LEFT" spacing="12"
+                  style="-fx-background-color: white; -fx-padding: 15 20;
+                         -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);">
+                <Label style="-fx-text-fill: #2c3e50; -fx-font-size: 20px;
+                               -fx-font-weight: bold;"
+                       text="Catálogo de Vehículos" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Label style="-fx-text-fill: #7f8c8d; -fx-font-size: 12px;"
+                       text="Selecciona el vehículo perfecto para ti" />
+            </HBox>
+        </top>
+
+        <center>
+            <ScrollPane fitToWidth="true"
+                        style="-fx-background-color: transparent; -fx-background: #ecf0f1;">
+                <VBox fx:id="contenedorCategorias"
+                      spacing="25"
+                      style="-fx-padding: 20;" />
+            </ScrollPane>
+        </center>
+
+    </BorderPane>
+
+</HBox>

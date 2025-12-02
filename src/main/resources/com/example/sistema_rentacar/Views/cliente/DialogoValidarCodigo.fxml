@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.sistema_rentacar.Controllers.Cliente.DialogoValidarCodigoController"
+      spacing="0"
+      prefWidth="550"
+      prefHeight="700"
+      style="-fx-background-color: #f8f9fa;">
+
+    <!-- Header con gradiente -->
+    <VBox alignment="CENTER" spacing="12"
+          style="-fx-background-color: linear-gradient(to bottom right, #27ae60, #229954); -fx-padding: 35 30 35 30;">
+
+        <!-- Icono circular -->
+        <StackPane style="-fx-background-color: rgba(255,255,255,0.2); -fx-background-radius: 50; -fx-padding: 18;">
+            <Label text="🔑" style="-fx-font-size: 38px;"/>
+        </StackPane>
+
+        <Label text="Restablecer Contraseña" style="-fx-text-fill: white; -fx-font-size: 24px; -fx-font-weight: bold;"/>
+        <Label fx:id="lblSubtitulo"
+               text="Ingresa el código que enviamos a tu correo"
+               style="-fx-text-fill: rgba(255,255,255,0.9); -fx-font-size: 13px;"
+               wrapText="true" alignment="CENTER"/>
+    </VBox>
+
+    <!-- Contenido principal -->
+    <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-background: transparent;">
+        <VBox spacing="20" style="-fx-padding: 30 35 30 35; -fx-background-color: white;">
+
+            <!-- Alerta de tiempo restante -->
+            <HBox fx:id="hboxTiempoRestante"
+                  alignment="CENTER_LEFT"
+                  spacing="12"
+                  style="-fx-background-color: #fff8e1;
+                         -fx-padding: 15 20 15 20;
+                         -fx-background-radius: 10;
+                         -fx-border-color: #ffe082;
+                         -fx-border-radius: 10;
+                         -fx-border-width: 1;">
+
+                <StackPane style="-fx-background-color: #ffc107; -fx-background-radius: 20; -fx-padding: 8;">
+                    <Label text="⏱️" style="-fx-font-size: 20px;"/>
+                </StackPane>
+
+                <VBox spacing="2">
+                    <Label text="Tiempo restante"
+                           style="-fx-font-weight: 600; -fx-text-fill: #e65100; -fx-font-size: 12px;"/>
+                    <Label fx:id="lblTiempoRestante"
+                           text="15:00 minutos"
+                           style="-fx-text-fill: #f57c00; -fx-font-weight: bold; -fx-font-size: 16px;"/>
+                </VBox>
+            </HBox>
+
+            <!-- Código de Verificación -->
+            <VBox spacing="12" alignment="CENTER">
+                <Label text="Código de Verificación"
+                       style="-fx-font-weight: 600; -fx-text-fill: #212529; -fx-font-size: 14px;"/>
+
+                <VBox spacing="8" alignment="CENTER">
+                    <TextField fx:id="txtCodigo"
+                               promptText="000000"
+                               maxWidth="200"
+                               alignment="CENTER"
+                               style="-fx-font-size: 32px;
+                                      -fx-font-family: 'Courier New', monospace;
+                                      -fx-pref-height: 70px;
+                                      -fx-font-weight: bold;
+                                      -fx-background-color: #f8f9fa;
+                                      -fx-border-color: #27ae60;
+                                      -fx-border-width: 3;
+                                      -fx-border-radius: 12;
+                                      -fx-background-radius: 12;
+                                      -fx-effect: dropshadow(gaussian, rgba(39,174,96,0.2), 8, 0, 0, 2);
+                                      letter-spacing: 8px;"/>
+
+                    <Label fx:id="lblMensajeCodigo"
+                           textFill="#dc3545"
+                           wrapText="true"
+                           visible="false"
+                           style="-fx-font-size: 12px; -fx-font-weight: 500;"/>
+                </VBox>
+
+                <!-- Botón reenviar código -->
+                <Button text="¿No recibiste el código? Solicitar nuevo"
+                        onAction="#handleSolicitarNuevoCodigo"
+                        style="-fx-background-color: transparent;
+                               -fx-text-fill: #667eea;
+                               -fx-font-size: 12px;
+                               -fx-underline: true;
+                               -fx-cursor: hand;
+                               -fx-padding: 5;"/>
+            </VBox>
+
+            <!-- Separador visual -->
+            <Separator style="-fx-padding: 10 0 10 0;"/>
+
+            <!-- Nueva Contraseña -->
+            <VBox spacing="10">
+                <Label text="Nueva Contraseña"
+                       style="-fx-font-weight: 600; -fx-text-fill: #212529; -fx-font-size: 13px;"/>
+
+                <VBox spacing="6">
+                    <PasswordField fx:id="txtNuevaContrasena"
+                                   promptText="Ingresa tu nueva contraseña"
+                                   style="-fx-font-size: 14px;
+                                          -fx-pref-height: 45px;
+                                          -fx-background-color: white;
+                                          -fx-border-color: #dee2e6;
+                                          -fx-border-radius: 8;
+                                          -fx-background-radius: 8;
+                                          -fx-padding: 0 15 0 15;
+                                          -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 4, 0, 0, 2);"/>
+                </VBox>
+            </VBox>
+
+            <!-- Confirmar Contraseña -->
+            <VBox spacing="10">
+                <Label text="Confirmar Nueva Contraseña"
+                       style="-fx-font-weight: 600; -fx-text-fill: #212529; -fx-font-size: 13px;"/>
+
+                <VBox spacing="6">
+                    <PasswordField fx:id="txtConfirmarContrasena"
+                                   promptText="Repite tu nueva contraseña"
+                                   style="-fx-font-size: 14px;
+                                          -fx-pref-height: 45px;
+                                          -fx-background-color: white;
+                                          -fx-border-color: #dee2e6;
+                                          -fx-border-radius: 8;
+                                          -fx-background-radius: 8;
+                                          -fx-padding: 0 15 0 15;
+                                          -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 4, 0, 0, 2);"/>
+
+                    <Label fx:id="lblMensajeContrasena"
+                           textFill="#dc3545"
+                           wrapText="true"
+                           visible="false"
+                           style="-fx-font-size: 12px; -fx-padding: 0 5 0 5; -fx-font-weight: 500;"/>
+                </VBox>
+            </VBox>
+
+            <!-- Card de requisitos -->
+            <VBox spacing="10"
+                  style="-fx-background-color: #e8f5e9;
+                         -fx-padding: 18;
+                         -fx-background-radius: 10;
+                         -fx-border-color: #a5d6a7;
+                         -fx-border-radius: 10;
+                         -fx-border-width: 1;">
+
+                <HBox spacing="8" alignment="CENTER_LEFT">
+                    <Label text="🔒" style="-fx-font-size: 16px;"/>
+                    <Label text="Requisitos de seguridad"
+                           style="-fx-font-weight: bold; -fx-text-fill: #2e7d32; -fx-font-size: 13px;"/>
+                </HBox>
+
+                <VBox spacing="6">
+                    <HBox spacing="8" alignment="CENTER_LEFT">
+                        <Label text="✓" style="-fx-text-fill: #2e7d32; -fx-font-weight: bold; -fx-font-size: 14px;"/>
+                        <Label text="Mínimo 6 caracteres"
+                               style="-fx-text-fill: #1b5e20; -fx-font-size: 12px;"/>
+                    </HBox>
+                    <HBox spacing="8" alignment="CENTER_LEFT">
+                        <Label text="✓" style="-fx-text-fill: #2e7d32; -fx-font-weight: bold; -fx-font-size: 14px;"/>
+                        <Label text="Combina letras, números y símbolos para mayor seguridad"
+                               style="-fx-text-fill: #1b5e20; -fx-font-size: 12px;"
+                               wrapText="true"/>
+                    </HBox>
+                    <HBox spacing="8" alignment="CENTER_LEFT">
+                        <Label text="✓" style="-fx-text-fill: #2e7d32; -fx-font-weight: bold; -fx-font-size: 14px;"/>
+                        <Label text="Evita usar información personal obvia"
+                               style="-fx-text-fill: #1b5e20; -fx-font-size: 12px;"/>
+                    </HBox>
+                </VBox>
+            </VBox>
+
+            <!-- Indicador de procesamiento -->
+            <HBox fx:id="hboxProcesando"
+                  alignment="CENTER"
+                  spacing="12"
+                  visible="false"
+                  managed="false"
+                  style="-fx-background-color: #e3f2fd;
+                         -fx-padding: 15;
+                         -fx-background-radius: 8;
+                         -fx-border-color: #90caf9;
+                         -fx-border-radius: 8;
+                         -fx-border-width: 1;">
+                <ProgressIndicator prefWidth="22" prefHeight="22"
+                                   style="-fx-progress-color: #1976d2;"/>
+                <Label text="Validando y actualizando contraseña..."
+                       style="-fx-text-fill: #0d47a1; -fx-font-size: 13px; -fx-font-weight: 500;"/>
+            </HBox>
+
+            <!-- Espaciador -->
+            <Region VBox.vgrow="ALWAYS" prefHeight="20"/>
+
+            <!-- Botones -->
+            <HBox spacing="12" alignment="CENTER">
+                <Button fx:id="btnCancelar"
+                        text="Cancelar"
+                        onAction="#handleCancelar"
+                        prefWidth="140"
+                        prefHeight="45"
+                        style="-fx-background-color: white;
+                               -fx-text-fill: #6c757d;
+                               -fx-font-size: 14px;
+                               -fx-font-weight: 600;
+                               -fx-background-radius: 8;
+                               -fx-border-color: #dee2e6;
+                               -fx-border-radius: 8;
+                               -fx-border-width: 2;
+                               -fx-cursor: hand;
+                               -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 4, 0, 0, 2);"/>
+
+                <Button fx:id="btnRestablecer"
+                        text="Restablecer Contraseña"
+                        onAction="#handleRestablecer"
+                        defaultButton="true"
+                        prefWidth="220"
+                        prefHeight="45"
+                        style="-fx-background-color: linear-gradient(to right, #27ae60, #229954);
+                               -fx-text-fill: white;
+                               -fx-font-size: 14px;
+                               -fx-font-weight: bold;
+                               -fx-background-radius: 8;
+                               -fx-cursor: hand;
+                               -fx-effect: dropshadow(gaussian, rgba(39,174,96,0.4), 8, 0, 0, 4);"/>
+            </HBox>
+        </VBox>
+    </ScrollPane>
+
+    <!-- Footer -->
+    <HBox alignment="CENTER" spacing="6"
+          style="-fx-padding: 15; -fx-background-color: #f8f9fa;">
+        <Label text="🔐" style="-fx-font-size: 14px;"/>
+        <Label text="Tu información está protegida con cifrado de grado empresarial"
+               style="-fx-text-fill: #6c757d; -fx-font-size: 11px; -fx-font-style: italic;"/>
+    </HBox>
+
+</VBox>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+
+<AnchorPane minHeight="600" minWidth="800"
+            stylesheets="@../css/estilosInicio.css"
+            xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.sistema_rentacar.Controllers.InicioController">
+
+    <children>
+        <HBox AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0"
+              AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+
+            <!-- PANEL IZQUIERDO - BRANDING -->
+            <VBox alignment="CENTER" spacing="25" styleClass="panel-branding" HBox.hgrow="ALWAYS">
+                <padding>
+                    <Insets bottom="40" left="50" right="50" top="40" />
+                </padding>
+
+                <!-- Logo Grande -->
+                <VBox alignment="CENTER" spacing="25">
+                    <StackPane styleClass="logo-container" >
+                        <Circle radius="130" styleClass="logo-circle-outer" />
+                        <Circle radius="125" styleClass="logo-circle-inner" />
+                        <ImageView fx:id="logoImage" fitHeight="230" fitWidth="230" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/logo/logo1.png" />
+                            </image>
+                        </ImageView>
+                    </StackPane>
+
+                    <!-- Nombre de la Empresa -->
+                    <VBox alignment="CENTER" spacing="10">
+                        <Label styleClass="subtitulo-empresa" text="Tu Compañero de Viaje Perfecto" />
+                    </VBox>
+                </VBox>
+
+                <!-- Features Highlights -->
+                <VBox spacing="15" styleClass="features-box">
+
+                    <HBox alignment="CENTER_LEFT" spacing="12">
+                        <StackPane styleClass="feature-icon-container">
+                            <Circle radius="17.5" styleClass="feature-icon-circle" />
+                            <Label styleClass="feature-icon-text" text="🚗" />
+                        </StackPane>
+                        <Label styleClass="feature-label" text="Flota moderna y variada" wrapText="true" />
+                    </HBox>
+
+                    <HBox alignment="CENTER_LEFT" spacing="12">
+                        <StackPane styleClass="feature-icon-container">
+                            <Circle radius="17.5" styleClass="feature-icon-circle" />
+                            <Label styleClass="feature-icon-text" text="⚡" />
+                        </StackPane>
+                        <Label styleClass="feature-label" text="Reservas instantáneas" wrapText="true" />
+                    </HBox>
+
+                    <HBox alignment="CENTER_LEFT" spacing="12">
+                        <StackPane styleClass="feature-icon-container">
+                            <Circle radius="17.5" styleClass="feature-icon-circle" />
+                            <Label styleClass="feature-icon-text" text="🛡️" />
+                        </StackPane>
+                        <Label styleClass="feature-label" text="Atención 24/7 garantizada" wrapText="true" />
+                    </HBox>
+
+                </VBox>
+
+
+
+            </VBox>
+
+            <!-- PANEL DERECHO - OPCIONES DE ACCESO -->
+            <VBox alignment="CENTER" spacing="30" styleClass="panel-acceso" HBox.hgrow="ALWAYS">
+                <padding>
+                    <Insets bottom="40" left="50" right="50" top="40" />
+                </padding>
+
+                <!-- Header -->
+                <VBox alignment="CENTER" spacing="8">
+                    <Label styleClass="header-titulo" text="Seleccionar Acceso" />
+                    <Label styleClass="header-subtitulo" text="Escoge el tipo de acceso según tu perfil" />
+                </VBox>
+
+                <!-- Tarjeta Empleado -->
+                <VBox alignment="CENTER" spacing="12" styleClass="tarjeta-acceso">
+                    <padding>
+                        <Insets bottom="25" left="30" right="30" top="25" />
+                    </padding>
+
+                    <!-- Icono y Título -->
+                    <VBox alignment="CENTER" spacing="12">
+                        <StackPane styleClass="icono-empleado-container">
+                            <ImageView fitHeight="50" fitWidth="50" preserveRatio="true">
+                                <image>
+                                    <Image url="@../images/empleado.gif" />
+                                </image>
+                            </ImageView>
+                        </StackPane>
+
+                        <VBox alignment="CENTER" spacing="4">
+                            <Label styleClass="tarjeta-titulo" text="Área de Empleados" />
+                            <Label styleClass="tarjeta-descripcion" text="Gestión y administración del sistema"
+                                   textAlignment="CENTER" wrapText="true" />
+                        </VBox>
+                    </VBox>
+
+                    <!-- Botón -->
+                    <Button fx:id="btnEmpleado" maxWidth="Infinity"
+                            onAction="#onEmpleadoClick"
+                            styleClass="btn-empleado"
+                            text="ACCEDER COMO EMPLEADO">
+                        <VBox.margin>
+                            <Insets top="5" />
+                        </VBox.margin>
+                    </Button>
+                </VBox>
+
+                <!-- Tarjeta Cliente -->
+                <VBox alignment="CENTER" spacing="12" styleClass="tarjeta-acceso">
+                    <padding>
+                        <Insets bottom="25" left="30" right="30" top="25" />
+                    </padding>
+
+                    <!-- Icono y Título -->
+                    <VBox alignment="CENTER" spacing="12">
+                        <StackPane styleClass="icono-cliente-container">
+                            <ImageView fitHeight="50" fitWidth="50" preserveRatio="true">
+                                <image>
+                                    <Image url="@../images/cliente.gif" />
+                                </image>
+                            </ImageView>
+                        </StackPane>
+
+                        <VBox alignment="CENTER" spacing="4">
+                            <Label styleClass="tarjeta-titulo" text="Portal de Clientes" />
+                            <Label styleClass="tarjeta-descripcion" text="Reserva y gestiona tus alquileres"
+                                   textAlignment="CENTER" wrapText="true" />
+                        </VBox>
+                    </VBox>
+
+                    <!-- Botón -->
+                    <Button fx:id="btnCliente" maxWidth="Infinity"
+                            onAction="#onClienteClick"
+                            styleClass="btn-cliente"
+                            text="ACCEDER COMO CLIENTE">
+                        <VBox.margin>
+                            <Insets top="5" />
+                        </VBox.margin>
+                    </Button>
+                </VBox>
+
+                <!-- Divider con texto -->
+                <HBox alignment="CENTER" spacing="10">
+                    <Label styleClass="divider-linea" text="━━━━━" />
+                    <Label styleClass="divider-texto" text="Sistema seguro y confiable" />
+                    <Label styleClass="divider-linea" text="━━━━━" />
+                </HBox>
+
+            </VBox>
+
+        </HBox>
+    </children>
+
+</AnchorPane>

@@ -1,0 +1,319 @@
+/*
+   ESTILOS PARA FORMULARIO DE EMPLEADOS
+ */
+
+/* Contenedor principal del formulario */
+.form-container {
+    -fx-background-color: #f8f9fa;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 20, 0, 0, 5);
+}
+
+/* Header del formulario */
+.form-header {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 0, 3);
+}
+
+/* Secciones del formulario */
+.form-section {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-padding: 25;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.08), 10, 0, 0, 2);
+}
+
+.form-section:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.12), 15, 0, 0, 3);
+}
+
+/* Header de sección */
+.section-header {
+    -fx-padding: 0 0 10 0;
+}
+
+/* Etiquetas de campos */
+.field-label {
+    -fx-text-fill: #2c3e50;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+/* Mejorar contraste en textos descriptivos */
+.text-muted {
+    -fx-text-fill: #5a6c7d;
+    -fx-font-size: 12px;
+}
+
+/* Campos de texto, ComboBox y DatePicker */
+.form-field,
+.text-field,
+.combo-box,
+.date-picker {
+    -fx-font-size: 14px;
+    -fx-padding: 12 15;
+    -fx-background-color: #f8f9fa;
+    -fx-background-radius: 8;
+    -fx-border-color: #dce1e6;
+    -fx-border-radius: 8;
+    -fx-border-width: 2;
+}
+
+.form-field:focused,
+.text-field:focused,
+.combo-box:focused,
+.date-picker:focused {
+    -fx-background-color: white;
+    -fx-border-color: #3498db;
+    -fx-effect: dropshadow(gaussian, rgba(52, 152, 219, 0.3), 8, 0, 0, 0);
+}
+
+.form-field:hover,
+.text-field:hover,
+.combo-box:hover,
+.date-picker:hover {
+    -fx-border-color: #95a5a6;
+    -fx-background-color: white;
+}
+
+/* Placeholder text */
+.text-field .prompt-text,
+.password-field .prompt-text {
+    -fx-fill: #7f8c8d;
+    -fx-font-style: italic;
+    -fx-opacity: 0.8;
+}
+
+/* Mejorar contraste de textos en general */
+.label {
+    -fx-text-fill: #2c3e50;
+}
+
+/* ComboBox específico */
+.combo-box .list-cell {
+    -fx-padding: 10 15;
+    -fx-font-size: 14px;
+    -fx-text-fill: #2c3e50;
+}
+
+.combo-box .list-cell:selected {
+    -fx-text-fill: white;
+    -fx-background-color: #3498db;
+}
+
+.combo-box .arrow-button {
+    -fx-background-color: transparent;
+}
+
+.combo-box .arrow {
+    -fx-background-color: #3498db;
+}
+
+/* DatePicker específico */
+.date-picker .arrow-button {
+    -fx-background-color: transparent;
+}
+
+.date-picker .arrow {
+    -fx-background-color: #3498db;
+}
+
+/* CheckBox personalizado */
+.check-box {
+    -fx-font-size: 14px;
+    -fx-text-fill: #2c3e50;
+    -fx-font-weight: bold;
+}
+
+.check-box .text {
+    -fx-fill: #2c3e50;
+    -fx-font-weight: bold;
+}
+
+.check-box .box {
+    -fx-background-color: white;
+    -fx-border-color: #3498db;
+    -fx-border-width: 2;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-padding: 3;
+}
+
+.check-box:selected .box {
+    -fx-background-color: #3498db;
+}
+
+.check-box:selected .mark {
+    -fx-background-color: white;
+}
+
+.check-box:selected .text {
+    -fx-fill: #2c3e50;
+    -fx-font-weight: bold;
+}
+
+.check-box:hover .box {
+    -fx-border-color: #2980b9;
+    -fx-effect: dropshadow(gaussian, rgba(52, 152, 219, 0.3), 5, 0, 0, 0);
+}
+
+.check-box:hover .text {
+    -fx-fill: #1a252f;
+}
+
+/* PasswordField */
+.password-field {
+    -fx-font-size: 14px;
+    -fx-padding: 12 15;
+    -fx-background-color: #f8f9fa;
+    -fx-background-radius: 8;
+    -fx-border-color: #dce1e6;
+    -fx-border-radius: 8;
+    -fx-border-width: 2;
+}
+
+.password-field:focused {
+    -fx-background-color: white;
+    -fx-border-color: #e74c3c;
+    -fx-effect: dropshadow(gaussian, rgba(231, 76, 60, 0.3), 8, 0, 0, 0);
+}
+
+.password-field:hover {
+    -fx-border-color: #95a5a6;
+    -fx-background-color: white;
+}
+
+/* Separadores */
+.separator .line {
+    -fx-background-color: #e0e0e0;
+    -fx-border-width: 1 0 0 0;
+}
+
+/* ScrollPane */
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .content {
+    -fx-background-color: transparent;
+}
+
+/* Scrollbar personalizado */
+.scroll-pane .scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-padding: 5;
+}
+
+.scroll-pane .scroll-bar:vertical .track {
+    -fx-background-color: #ecf0f1;
+    -fx-background-radius: 5;
+}
+
+.scroll-pane .scroll-bar:vertical .thumb {
+    -fx-background-color: #95a5a6;
+    -fx-background-radius: 5;
+}
+
+.scroll-pane .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #7f8c8d;
+}
+
+.scroll-pane .scroll-bar:vertical .thumb:pressed {
+    -fx-background-color: #34495e;
+}
+
+/* Botones del formulario */
+.btn-success {
+    -fx-background-color: linear-gradient(to bottom, #27ae60, #229954);
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 8, 0, 0, 2);
+}
+
+.btn-success:hover {
+    -fx-background-color: linear-gradient(to bottom, #2ecc71, #27ae60);
+    -fx-effect: dropshadow(gaussian, rgba(39, 174, 96, 0.4), 12, 0, 0, 3);
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
+.btn-success:pressed {
+    -fx-background-color: linear-gradient(to bottom, #229954, #1e8449);
+    -fx-translate-y: 2;
+}
+
+.btn-secondary {
+    -fx-background-color: linear-gradient(to bottom, #95a5a6, #7f8c8d);
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 8, 0, 0, 2);
+}
+
+.btn-secondary:hover {
+    -fx-background-color: linear-gradient(to bottom, #bdc3c7, #95a5a6);
+    -fx-effect: dropshadow(gaussian, rgba(149, 165, 166, 0.4), 12, 0, 0, 3);
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
+.btn-secondary:pressed {
+    -fx-background-color: linear-gradient(to bottom, #7f8c8d, #707b7c);
+    -fx-translate-y: 2;
+}
+
+/* Animaciones de validación */
+.field-error {
+    -fx-border-color: #e74c3c !important;
+    -fx-effect: dropshadow(gaussian, rgba(231, 76, 60, 0.3), 8, 0, 0, 0) !important;
+}
+
+.field-success {
+    -fx-border-color: #27ae60 !important;
+    -fx-effect: dropshadow(gaussian, rgba(39, 174, 96, 0.3), 8, 0, 0, 0) !important;
+}
+
+/* Efecto de carga en botones */
+.button:disabled {
+    -fx-opacity: 0.6;
+    -fx-cursor: default;
+}
+
+/* Grid del formulario */
+.form-grid {
+    -fx-hgap: 20;
+    -fx-vgap: 18;
+}
+
+/* Tooltips personalizados (si los usas) */
+.tooltip {
+    -fx-background-color: #34495e;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-padding: 8 12;
+    -fx-background-radius: 6;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 0, 2);
+}
+
+/* Responsive - Ajuste de espaciado */
+@media (max-width: 600px) {
+    .form-section {
+        -fx-padding: 15;
+    }
+
+    .field-label {
+        -fx-font-size: 12px;
+    }
+
+    .form-field {
+        -fx-font-size: 13px;
+        -fx-padding: 10 12;
+    }
+}

@@ -1,0 +1,280 @@
+/*
+   ESTILOS PARA FORMULARIO DE CATEGORÍAS
+*/
+
+/* Contenedor principal del formulario */
+.form-container {
+    -fx-background-color: #f8f9fa;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 20, 0, 0, 5);
+}
+
+/* Header del formulario con gradiente morado */
+.form-header {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 0, 3);
+}
+
+/* Secciones del formulario */
+.form-section {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-padding: 25;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.08), 10, 0, 0, 2);
+}
+
+.form-section:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.12), 15, 0, 0, 3);
+}
+
+/* Sección de información del sistema */
+.info-section {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.08), 10, 0, 0, 2);
+}
+
+.info-box {
+    -fx-background-color: #f0f3ff;
+    -fx-background-radius: 10;
+    -fx-padding: 18;
+    -fx-border-color: #d0d8ff;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+}
+
+/* Header de sección */
+.section-header {
+    -fx-padding: 0 0 10 0;
+}
+
+/* Etiquetas de campos */
+.field-label {
+    -fx-text-fill: #2c3e50;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+/* Mejorar contraste en textos descriptivos */
+.text-muted {
+    -fx-text-fill: #5a6c7d;
+    -fx-font-size: 12px;
+}
+
+/* Campos de texto y TextArea */
+.form-field,
+.text-field {
+    -fx-font-size: 14px;
+    -fx-padding: 12 15;
+    -fx-background-color: #f8f9fa;
+    -fx-background-radius: 8;
+    -fx-border-color: #dce1e6;
+    -fx-border-radius: 8;
+    -fx-border-width: 2;
+}
+
+.form-field:focused,
+.text-field:focused {
+    -fx-background-color: white;
+    -fx-border-color: #9b59b6;
+    -fx-effect: dropshadow(gaussian, rgba(155, 89, 182, 0.3), 8, 0, 0, 0);
+}
+
+.form-field:hover,
+.text-field:hover {
+    -fx-border-color: #95a5a6;
+    -fx-background-color: white;
+}
+
+/* Placeholder text */
+.text-field .prompt-text,
+.text-area .prompt-text {
+    -fx-fill: #7f8c8d;
+    -fx-font-style: italic;
+    -fx-opacity: 0.8;
+}
+
+/* Mejorar contraste de textos en general */
+.label {
+    -fx-text-fill: #2c3e50;
+}
+
+/* TextArea */
+.form-textarea,
+.text-area {
+    -fx-font-size: 14px;
+    -fx-padding: 12 15;
+    -fx-background-color: #f8f9fa;
+    -fx-background-radius: 8;
+    -fx-border-color: #dce1e6;
+    -fx-border-radius: 8;
+    -fx-border-width: 2;
+}
+
+.form-textarea:focused,
+.text-area:focused {
+    -fx-background-color: white;
+    -fx-border-color: #9b59b6;
+    -fx-effect: dropshadow(gaussian, rgba(155, 89, 182, 0.3), 8, 0, 0, 0);
+}
+
+.form-textarea:hover,
+.text-area:hover {
+    -fx-border-color: #95a5a6;
+    -fx-background-color: white;
+}
+
+.text-area .content {
+    -fx-background-color: transparent;
+}
+
+/* Separadores */
+.separator .line {
+    -fx-background-color: #e0e0e0;
+    -fx-border-width: 1 0 0 0;
+}
+
+/* ScrollPane */
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .content {
+    -fx-background-color: transparent;
+}
+
+/* Scrollbar personalizado */
+.scroll-pane .scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-padding: 5;
+}
+
+.scroll-pane .scroll-bar:vertical .track {
+    -fx-background-color: #ecf0f1;
+    -fx-background-radius: 5;
+}
+
+.scroll-pane .scroll-bar:vertical .thumb {
+    -fx-background-color: #95a5a6;
+    -fx-background-radius: 5;
+}
+
+.scroll-pane .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #7f8c8d;
+}
+
+.scroll-pane .scroll-bar:vertical .thumb:pressed {
+    -fx-background-color: #9b59b6;
+}
+
+/* Botones del formulario */
+.btn-success {
+    -fx-background-color: linear-gradient(to bottom, #27ae60, #229954);
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 8, 0, 0, 2);
+}
+
+.btn-success:hover {
+    -fx-background-color: linear-gradient(to bottom, #2ecc71, #27ae60);
+    -fx-effect: dropshadow(gaussian, rgba(39, 174, 96, 0.4), 12, 0, 0, 3);
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
+.btn-success:pressed {
+    -fx-background-color: linear-gradient(to bottom, #229954, #1e8449);
+    -fx-translate-y: 2;
+}
+
+.btn-secondary {
+    -fx-background-color: linear-gradient(to bottom, #95a5a6, #7f8c8d);
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 8, 0, 0, 2);
+}
+
+.btn-secondary:hover {
+    -fx-background-color: linear-gradient(to bottom, #bdc3c7, #95a5a6);
+    -fx-effect: dropshadow(gaussian, rgba(149, 165, 166, 0.4), 12, 0, 0, 3);
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
+.btn-secondary:pressed {
+    -fx-background-color: linear-gradient(to bottom, #7f8c8d, #707b7c);
+    -fx-translate-y: 2;
+}
+
+/* Animaciones de validación */
+.field-error {
+    -fx-border-color: #e74c3c !important;
+    -fx-effect: dropshadow(gaussian, rgba(231, 76, 60, 0.3), 8, 0, 0, 0) !important;
+}
+
+.field-success {
+    -fx-border-color: #27ae60 !important;
+    -fx-effect: dropshadow(gaussian, rgba(39, 174, 96, 0.3), 8, 0, 0, 0) !important;
+}
+
+/* Efecto de carga en botones */
+.button:disabled {
+    -fx-opacity: 0.6;
+    -fx-cursor: default;
+}
+
+/* Estilos especiales para el campo de tarifa */
+.form-field.tarifa-field {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #27ae60;
+}
+
+/* Tooltips personalizados */
+.tooltip {
+    -fx-background-color: #2c3e50;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-padding: 8 12;
+    -fx-background-radius: 6;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 0, 2);
+}
+
+/* Hover effects para info-box */
+.info-box:hover {
+    -fx-background-color: #e8edff;
+    -fx-border-color: #b8c5ff;
+}
+
+/* Responsive - Ajuste de espaciado */
+@media (max-width: 550px) {
+    .form-section {
+        -fx-padding: 15;
+    }
+
+    .info-section {
+        -fx-padding: 15;
+    }
+
+    .info-box {
+        -fx-padding: 12;
+    }
+
+    .field-label {
+        -fx-font-size: 12px;
+    }
+
+    .form-field {
+        -fx-font-size: 13px;
+        -fx-padding: 10 12;
+    }
+}

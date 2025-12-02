@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane style="-fx-background-color: linear-gradient(to bottom right, #5a7d9a, #2c3e50);"
+            xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.sistema_rentacar.Controllers.Empleado.LoginEmpleadoController">
+
+    <children>
+        <!-- Contenedor principal centrado -->
+        <StackPane alignment="CENTER"
+                   AnchorPane.bottomAnchor="10"
+                   AnchorPane.leftAnchor="10"
+                   AnchorPane.rightAnchor="10"
+                   AnchorPane.topAnchor="10">
+            <children>
+
+
+                <AnchorPane fx:id="cardLogin"
+                            maxHeight="680"
+                            maxWidth="550"
+                            minHeight="550"
+                            minWidth="450"
+                            prefHeight="620"
+                            prefWidth="500"
+                            style="-fx-background-color: white;
+                                   -fx-background-radius: 18;
+                                   -fx-border-radius: 18;
+                                   -fx-border-color: #D99201;
+                                   -fx-border-width: 2;
+                                   -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 10, 0, 0, 4);"
+                            stylesheets="@../../css/loginCliente.css">
+                    <children>
+
+                        <!-- Logo - Reducido -->
+                        <ImageView fx:id="logoImage"
+                                   fitHeight="200"
+                                   fitWidth="200"
+                                   preserveRatio="true"
+                                   AnchorPane.leftAnchor="185"
+                                   AnchorPane.rightAnchor="185"
+                                   AnchorPane.topAnchor="15">
+                            <image>
+                                <Image url="@../../images/logo/logo1.png" />
+                            </image>
+                        </ImageView>
+
+                        <!-- Contenedor del formulario -->
+                        <VBox alignment="CENTER"
+                              spacing="10"
+                              AnchorPane.bottomAnchor="20"
+                              AnchorPane.leftAnchor="40"
+                              AnchorPane.rightAnchor="40"
+                              AnchorPane.topAnchor="155">
+
+                            <!-- Encabezado -->
+                            <VBox alignment="CENTER" spacing="5">
+                                <!-- Ícono de empleado - Reducido -->
+                                <ImageView fx:id="userIcon"
+                                           fitHeight="38"
+                                           fitWidth="38"
+                                           preserveRatio="true">
+                                    <image>
+                                        <Image url="https://img.icons8.com/color/96/manager.png" />
+                                    </image>
+                                </ImageView>
+
+                                <!-- Título -->
+                                <Label text="Acceso para Empleados"
+                                       style="-fx-text-fill: #7f8c8d; -fx-font-size: 14px;" />
+                            </VBox>
+
+                            <!-- Campo usuario -->
+                            <VBox prefWidth="380" spacing="5">
+                                <Label text="Usuario"
+                                       style="-fx-text-fill: #00401B; -fx-font-weight: bold; -fx-font-size: 14px;" />
+                                <TextField fx:id="txtUsuario"
+                                           promptText="Ingrese su usuario"
+                                           styleClass="material-textfield"
+                                           style="-fx-pref-height: 38px;" />
+                            </VBox>
+
+                            <!-- Campo contraseña -->
+                            <VBox prefWidth="380" spacing="5">
+
+                                <Label text="Contraseña"
+                                       style="-fx-text-fill: #00401B; -fx-font-weight: bold; -fx-font-size: 14px;" />
+
+                                <HBox spacing="5" alignment="CENTER_LEFT">
+
+                                    <!-- PasswordField (oculto) -->
+                                    <PasswordField fx:id="txtContrasena"
+                                                   promptText="Ingrese su contraseña"
+                                                   styleClass="material-textfield"
+                                                   style="-fx-pref-height: 38px;"
+                                                   HBox.hgrow="ALWAYS"/>
+
+                                    <!-- TextField visible (mostrar contraseña) -->
+                                    <TextField fx:id="txtContrasenaVisible"
+                                               promptText="Ingrese su contraseña"
+                                               styleClass="material-textfield"
+                                               style="-fx-pref-height: 38px;"
+                                               visible="false"
+                                               managed="false"
+                                               HBox.hgrow="ALWAYS"/>
+
+                                    <!-- Botón de ver/ocultar contraseña -->
+                                    <Button fx:id="btnToggleContrasena"
+                                            onAction="#toggleContrasena"
+                                            style="-fx-background-color: transparent;
+                                            -fx-font-family: 'Font Awesome 7 Free Solid';
+                                            -fx-font-size: 16px;
+                                            -fx-cursor: hand;"
+                                            text="&#xf06e;" />
+
+                                </HBox>
+
+                            </VBox>
+
+                            <!-- Mensaje de error -->
+                            <Label fx:id="lblError"
+                                   text="Error en las credenciales"
+                                   visible="false"
+                                   wrapText="true"
+                                   maxWidth="360"
+                                   style="-fx-text-fill: #e74c3c; -fx-font-size: 11px; -fx-font-weight: bold; -fx-padding: 5 0 0 0;" />
+
+                            <!-- Indicador de carga -->
+                            <HBox fx:id="hboxCargando"
+                                  alignment="CENTER"
+                                  spacing="8"
+                                  visible="false">
+                                <ProgressIndicator prefHeight="24" prefWidth="24" />
+                                <Label text="Verificando credenciales..."
+                                       style="-fx-text-fill: #5a7d9a; -fx-font-size: 13px;" />
+                            </HBox>
+
+                            <!-- Botón de inicio de sesión -->
+                            <Button fx:id="btnLogin"
+                                    text="Iniciar Sesión"
+                                    onAction="#handleLogin"
+                                    maxWidth="200"
+                                    prefHeight="38"
+                                    styleClass="btn-primary">
+                                <VBox.margin>
+                                    <Insets top="3" />
+                                </VBox.margin>
+                                <cursor>
+                                    <javafx.scene.Cursor fx:constant="HAND" />
+                                </cursor>
+                            </Button>
+
+                            <!-- Separador y opciones adicionales -->
+                            <VBox alignment="CENTER"
+                                  prefWidth="380"
+                                  spacing="8">
+                                <VBox.margin>
+                                    <Insets top="3" />
+                                </VBox.margin>
+
+                                <Separator prefWidth="320" />
+
+                                <!-- Enlace volver a inicio -->
+                                <HBox alignment="CENTER" spacing="5">
+                                    <Label text="¿Eres cliente?"
+                                           style="-fx-text-fill: #2c3e50; -fx-font-size: 13px;" />
+                                    <Hyperlink fx:id="linkVolver"
+                                               onAction="#handleVolver"
+                                               text="Volver al inicio"
+                                               style="-fx-text-fill: #D99201; -fx-font-weight: bold; -fx-font-size: 13px; -fx-underline: false;">
+                                        <cursor>
+                                            <javafx.scene.Cursor fx:constant="HAND" />
+                                        </cursor>
+                                    </Hyperlink>
+                                </HBox>
+
+                            </VBox>
+
+                        </VBox>
+                    </children>
+                </AnchorPane>
+            </children>
+        </StackPane>
+    </children>
+</AnchorPane>
