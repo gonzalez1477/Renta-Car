@@ -1,9 +1,9 @@
 # Renta-Car
 
 **Renta-Car** es un sistema de gestión de alquiler de vehículos
-organizado por categorías. El proyecto ofrece dos tipos de acceso:\
+organizado por categorías. El proyecto ofrece dos tipos de acceso:
 - **Clientes**, quienes pueden visualizar vehículos disponibles y
-realizar solicitudes.\
+realizar solicitudes.
 - **Empleados**, responsables de administrar el inventario, usuarios y
 procesos de alquiler.
 
@@ -17,8 +17,8 @@ procesos de alquiler.
 
 ## Tecnologías utilizadas
 
--   **JavaFX**\
--   **Scene Builder**\
+-   **JavaFX**
+-   **Scene Builder**
 -   **PostgreSQL**
 
 ------------------------------------------------------------------------
@@ -29,7 +29,7 @@ procesos de alquiler.
 
 Tienes dos opciones:
 
--   **Descargar ZIP**:\
+-   **Descargar ZIP**:
     Desde el repositorio, selecciona **Code → Download ZIP**,
     descomprime el archivo y ábrelo en tu IDE.
 
@@ -45,15 +45,15 @@ Tienes dos opciones:
 
 ### Crear la base de datos
 
-1.  Abrir **pgAdmin**.\
+1.  Abrir **pgAdmin**.
 2.  Crear una base de datos con el nombre **rentacar_db**.
 
 ### Importar la base de datos
 
-1.  En pgAdmin, clic derecho sobre *rentacar_db*.\
-2.  Seleccionar **Restore**.\
+1.  En pgAdmin, clic derecho sobre *rentacar_db*.
+2.  Seleccionar **Restore**.
 3.  Escoger el archivo `.backup` o `.sql` incluido en el proyecto (si
-    aplica).\
+    aplica).
 4.  Ejecutar el proceso de importación.
 
 La base de datos quedará lista para su uso dentro del sistema.
@@ -62,7 +62,7 @@ La base de datos quedará lista para su uso dentro del sistema.
 
 ## 3. Configurar la conexión a PostgreSQL
 
-1.  Ir a la carpeta del proyecto:\
+1.  Ir a la carpeta del proyecto:
     **/conexion/**
 2.  Abrir la clase correspondiente, por ejemplo: `Conexion.java`.
 3.  Configurar los datos según tu entorno local:
@@ -76,9 +76,9 @@ private final String PORT = "5432"; // Modificar si tu PostgreSQL usa otro puert
 
 ### Asegúrate de verificar:
 
--   Puerto del servidor.\
--   Usuario configurado en PostgreSQL.\
--   Contraseña correspondiente.\
+-   Puerto del servidor.
+-   Usuario configurado en PostgreSQL.
+-   Contraseña correspondiente.
 -   Que el servicio de PostgreSQL esté activo.
 
 
