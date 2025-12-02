@@ -1,7 +1,14 @@
-# Renta-Car
+# VSB Renta-Car
+##Vista de Inicio
 ![Vista del sistema](./Images/VSB.PNG)
 
-**Renta-Car** es un sistema de gestión de alquiler de vehículos
+## Vista de Cliente
+![Vista del sistema](./Images/Cliente.PNG)
+
+## Vista de Administrador
+![Vista del sistema](./Images/Administrador.PNG)
+
+**VSB Renta-Car** es un sistema de gestión de alquiler de vehículos
 organizado por categorías. El proyecto ofrece dos tipos de acceso:
 - **Clientes**, quienes pueden visualizar vehículos disponibles y
 realizar solicitudes.
