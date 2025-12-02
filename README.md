@@ -1,4 +1,5 @@
 # Renta-Car
+![Vista del sistema](./Images/VSB.PNG)
 
 **Renta-Car** es un sistema de gestión de alquiler de vehículos
 organizado por categorías. El proyecto ofrece dos tipos de acceso:
