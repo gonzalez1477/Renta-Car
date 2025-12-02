@@ -1,5 +1,5 @@
 # VSB Renta-Car
-##Vista de Inicio
+## Vista de Inicio
 ![Vista del sistema](./Images/VSB.PNG)
 
 ## Vista de Cliente
