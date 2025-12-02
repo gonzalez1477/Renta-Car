@@ -36,7 +36,7 @@ Tienes dos opciones:
 -   **Clonar el repositorio**:
 
     ``` bash
-    git clone https://github.com/usuario/Renta-Car.git
+    https://github.com/gonzalez1477/Renta-Car.git
     ```
 
 ------------------------------------------------------------------------
