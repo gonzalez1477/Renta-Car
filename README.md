@@ -3,7 +3,7 @@
 ![Vista del sistema](./Images/VSB.PNG)
 
 ## Vista de Cliente
-![Vista del sistema](./Images/Cliente.PNG)
+![Vista del sistema](./Images/Clientes.PNG)
 
 ## Vista de Administrador
 ![Vista del sistema](./Images/Administrador.PNG)
